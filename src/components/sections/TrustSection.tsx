@@ -12,25 +12,25 @@ export function TrustSection() {
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Image Collage */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-4">
               <img 
                 src={familyCare} 
                 alt="Happy senior couple enjoying time together" 
-                className="rounded-2xl w-full h-72 object-cover"
+                className="rounded-2xl w-full h-80 object-cover"
               />
               <img 
                 src={caregiver1} 
                 alt="Professional caregiver with patient" 
-                className="rounded-2xl w-full h-72 object-cover mt-8"
+                className="rounded-2xl w-full h-80 object-cover mt-10"
               />
             </div>
           </div>
 
           {/* Content */}
-          <div>
+          <div className="lg:pt-8">
             <p className="text-primary text-sm tracking-wider uppercase mb-3 flex items-center gap-2">
               <span>+</span> ABOUT US
             </p>
@@ -45,7 +45,7 @@ export function TrustSection() {
             </Button>
 
             {/* Stats */}
-            <div className="flex gap-12 mt-10 pt-8 border-t border-border">
+            <div className="flex gap-10 mt-10 pt-8 border-t border-border">
               {stats.map((stat) => (
                 <div key={stat.label}>
                   <div className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">

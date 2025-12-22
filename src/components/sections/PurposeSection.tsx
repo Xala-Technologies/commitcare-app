@@ -22,17 +22,17 @@ const values = [
 
 export function PurposeSection() {
   return (
-    <section className="relative min-h-[650px] flex items-center overflow-hidden">
+    <section className="relative min-h-[700px] flex items-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${purposeBg})` }}
       >
-        <div className="absolute inset-0 bg-section-dark/60" />
+        <div className="absolute inset-0 bg-section-dark/50" />
       </div>
 
       <div className="container mx-auto relative z-10 py-16">
-        <div className="max-w-md">
+        <div className="max-w-md bg-section-dark/80 backdrop-blur-sm rounded-2xl p-8">
           {/* Header */}
           <p className="text-primary-foreground/80 text-sm tracking-wider uppercase mb-3 flex items-center gap-2">
             <span>+</span> OUR VALUE
@@ -42,16 +42,16 @@ export function PurposeSection() {
           </h2>
 
           {/* Values List */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             {values.map((value, index) => (
               <div 
                 key={value.title}
-                className="border-t border-primary-foreground/20 pt-4"
+                className="border-t border-primary-foreground/20 pt-5"
               >
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-primary-foreground mt-0.5 flex-shrink-0" />
                   <div>
-                    <h3 className="text-primary-foreground font-medium text-base mb-1">
+                    <h3 className="text-primary-foreground font-medium text-base mb-2">
                       {value.title}
                     </h3>
                     <p className="text-primary-foreground/70 text-sm leading-relaxed">
