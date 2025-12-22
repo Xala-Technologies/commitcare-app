@@ -1,11 +1,11 @@
-import { ArrowRight, User, Activity } from "lucide-react";
+import { ArrowRight, User, Zap } from "lucide-react";
 
 const services = [
   {
     icon: (
       <svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="10" strokeWidth={1.5} />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l2 2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6l4 2" />
       </svg>
     ),
     title: "Personal Care",
@@ -99,7 +99,7 @@ export function ServicesSection() {
               </p>
               <div className="flex items-center gap-4 mb-4">
                 {service.tags.map((tag) => (
-                  <span key={tag} className="flex items-center gap-1 text-muted-foreground text-xs">
+                  <span key={tag} className="flex items-center gap-1.5 text-muted-foreground text-xs">
                     <User className="w-3 h-3" /> {tag}
                   </span>
                 ))}

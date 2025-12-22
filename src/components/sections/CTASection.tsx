@@ -30,18 +30,24 @@ export function CTASection() {
 
             {/* Right Content - Rating */}
             <div className="flex justify-end items-center">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1">
+              <div className="flex items-center gap-3 bg-hero/40 backdrop-blur-sm rounded-full py-3 px-5">
+                <div className="flex items-center gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span className="text-primary-foreground/80 text-sm">4.9 Google review</span>
+                <span className="text-primary-foreground/90 text-sm">4.9 Google review</span>
                 <div className="flex -space-x-2 ml-2">
-                  {[1, 2, 3, 4, 5].map((i) => (
+                  {[
+                    "bg-teal-500",
+                    "bg-teal-400", 
+                    "bg-teal-600",
+                    "bg-teal-500",
+                    "bg-teal-400"
+                  ].map((bg, i) => (
                     <div 
                       key={i}
-                      className="w-8 h-8 rounded-full bg-primary/60 flex items-center justify-center border-2 border-hero text-primary-foreground text-xs"
+                      className={`w-8 h-8 rounded-full ${bg} flex items-center justify-center border-2 border-primary-foreground/20`}
                     />
                   ))}
                 </div>

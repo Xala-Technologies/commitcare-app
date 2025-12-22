@@ -28,9 +28,9 @@ export function ReliableCareSection() {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
-          <div>
+          <div className="lg:pt-8">
             <p className="text-primary text-sm tracking-wider uppercase mb-3 flex items-center gap-2">
               <span>+</span> HOW IT WORKS
             </p>
@@ -42,7 +42,7 @@ export function ReliableCareSection() {
             </p>
             
             {/* Features */}
-            <div className="space-y-3 mb-8">
+            <div className="space-y-3">
               {features.map((feature) => (
                 <div key={feature} className="flex items-center gap-3 text-primary">
                   <CheckCircle className="w-5 h-5" />
@@ -57,11 +57,11 @@ export function ReliableCareSection() {
             <img 
               src={caregiver2} 
               alt="Caregiver in green scrubs" 
-              className="rounded-2xl w-full max-w-sm object-cover"
+              className="rounded-2xl w-full max-w-md h-[500px] object-cover"
             />
             
             {/* Steps Cards */}
-            <div className="absolute top-8 -right-4 lg:right-0 space-y-3 max-w-xs">
+            <div className="absolute top-8 -right-4 lg:right-0 space-y-3 max-w-[280px]">
               {steps.map((step) => (
                 <div 
                   key={step.number}
