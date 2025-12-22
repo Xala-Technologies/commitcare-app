@@ -1,55 +1,77 @@
-import { Heart, Users, Activity } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const features = [
   {
-    icon: Heart,
+    icon: (
+      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    ),
     title: "Personal Care",
-    description: "Daily assistance with bathing, dressing, and personal hygiene to maintain dignity and comfort.",
+    description: "Assisting with daily rutines to enchance comfort",
+    link: "Our Team",
+    href: "/about",
   },
   {
-    icon: Users,
+    icon: (
+      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
     title: "Social Support",
-    description: "Companionship services that combat loneliness and promote mental well-being.",
+    description: "Engaging companionship and meaningful social interactions",
+    link: "Our Services",
+    href: "/services",
   },
   {
-    icon: Activity,
+    icon: (
+      <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+      </svg>
+    ),
     title: "Health Monitoring",
-    description: "Regular health checks and medication management to ensure optimal wellness.",
+    description: "Helping with mobility, exercise, and physical activities",
+    link: "Testimonials",
+    href: "#testimonials",
   },
 ];
 
 export function CareQualitySection() {
   return (
-    <section className="py-32 bg-background">
+    <section className="pt-32 pb-20 bg-background">
       <div className="container mx-auto">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
-            Care That Enhances Quality of Life
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Our comprehensive services are designed to support independence while 
-            providing the assistance needed for daily living.
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <p className="text-primary text-sm tracking-wider uppercase mb-3 flex items-center justify-center gap-2">
+            <span>+</span> WHAT WE OFFER
           </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-medium text-foreground">
+            Care That Enchances Quality of Life
+          </h2>
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        <div className="grid md:grid-cols-3 gap-6">
+          {features.map((feature) => (
             <div 
               key={feature.title}
-              className="bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 group animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="bg-card rounded-xl p-8 border border-border/50 hover:shadow-card-hover transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-7 h-7 text-primary" />
+              <div className="mb-6">
+                {feature.icon}
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+              <h3 className="font-serif text-xl font-medium text-foreground mb-3">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {feature.description}
               </p>
+              <a 
+                href={feature.href}
+                className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all"
+              >
+                <ArrowRight className="w-4 h-4" /> {feature.link}
+              </a>
             </div>
           ))}
         </div>

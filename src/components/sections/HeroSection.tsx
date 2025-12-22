@@ -1,63 +1,50 @@
 import { Button } from "@/components/ui/button";
-import { Star, Clock, Shield } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { Star, Clock, CheckCircle } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-hero/80" />
-      </div>
-
+    <section className="relative min-h-[85vh] flex items-center bg-hero">
       <div className="container mx-auto relative z-10 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="text-primary-foreground animate-fade-in-up">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6 text-balance">
-              Quality Care for Quality Lives
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-lg">
-              We provide compassionate home care services that enhance independence 
-              and bring peace of mind to families across the nation.
+          <div className="text-primary-foreground">
+            <p className="text-primary-foreground/80 text-sm tracking-wider uppercase mb-4 flex items-center gap-2">
+              <span className="text-primary-foreground">+</span> EVERLY HOME CARE
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6">
+              Quality Care for<br />Quality Lives
+            </h1>
+            <p className="text-primary-foreground/70 text-base mb-8 max-w-md leading-relaxed">
+              We're here to provide trusted, heart-centered care so seniors can live independently with confidence Empowering seniors to enjoy life's golden years
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button variant="hero" size="default" className="px-6">
                 Get Started
               </Button>
-              <Button variant="heroOutline" size="lg">
-                Learn More
+              <Button variant="heroOutline" size="default" className="px-6">
+                Contact Us
               </Button>
             </div>
           </div>
 
           {/* Right Content - Rating Cluster */}
-          <div className="hidden lg:flex justify-end">
-            <div className="bg-card/10 backdrop-blur-md rounded-2xl p-6 border border-primary-foreground/20 animate-fade-in animation-delay-300">
-              <div className="flex items-center gap-2 mb-3">
+          <div className="hidden lg:flex justify-end items-end h-full">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 ))}
-                <span className="text-primary-foreground font-semibold ml-2">4.9</span>
               </div>
-              <p className="text-primary-foreground/80 text-sm mb-4">
-                Trusted by over 5,000+ families nationwide
-              </p>
-              <div className="flex -space-x-3">
+              <span className="text-primary-foreground/80 text-sm">4.9 Google review</span>
+              <div className="flex -space-x-2 ml-2">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div 
                     key={i}
-                    className="w-10 h-10 rounded-full bg-primary flex items-center justify-center border-2 border-card text-primary-foreground text-xs font-medium"
+                    className="w-8 h-8 rounded-full bg-primary/60 flex items-center justify-center border-2 border-hero text-primary-foreground text-xs"
                   >
-                    {String.fromCharCode(64 + i)}
+                    <span className="sr-only">User {i}</span>
                   </div>
                 ))}
-                <div className="w-10 h-10 rounded-full bg-primary/80 flex items-center justify-center border-2 border-card text-primary-foreground text-xs">
-                  +2k
-                </div>
               </div>
             </div>
           </div>
@@ -65,26 +52,25 @@ export function HeroSection() {
       </div>
 
       {/* Feature Strip - Overlapping */}
-      <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 z-20">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            <div className="bg-primary rounded-xl p-6 flex items-start gap-4 shadow-lg">
-              <div className="w-12 h-12 rounded-lg bg-primary-foreground/20 flex items-center justify-center flex-shrink-0">
-                <Clock className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <h3 className="text-primary-foreground font-semibold text-lg mb-1">24/7 Support</h3>
-                <p className="text-primary-foreground/80 text-sm">Round-the-clock care whenever you need it most</p>
-              </div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
+        <div className="flex">
+          <div className="bg-primary rounded-l-xl px-8 py-6 flex items-start gap-4 min-w-[280px]">
+            <div className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0">
+              <Clock className="w-5 h-5 text-primary-foreground" />
             </div>
-            <div className="bg-primary rounded-xl p-6 flex items-start gap-4 shadow-lg">
-              <div className="w-12 h-12 rounded-lg bg-primary-foreground/20 flex items-center justify-center flex-shrink-0">
-                <Shield className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <h3 className="text-primary-foreground font-semibold text-lg mb-1">Certified Staff</h3>
-                <p className="text-primary-foreground/80 text-sm">Fully trained and background-checked caregivers</p>
-              </div>
+            <div>
+              <h3 className="text-primary-foreground font-serif text-lg mb-1">24/7 Support</h3>
+              <p className="text-primary-foreground/70 text-sm">Committed to being there every<br />hour, every day</p>
+            </div>
+          </div>
+          <div className="w-px bg-primary-foreground/20"></div>
+          <div className="bg-primary rounded-r-xl px-8 py-6 flex items-start gap-4 min-w-[280px]">
+            <div className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0">
+              <CheckCircle className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <div>
+              <h3 className="text-primary-foreground font-serif text-lg mb-1">Certified Best</h3>
+              <p className="text-primary-foreground/70 text-sm">Warded for our commitment to<br />quality</p>
             </div>
           </div>
         </div>

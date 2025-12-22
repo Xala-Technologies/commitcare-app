@@ -1,15 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search, Home } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
+  { name: "Pages", href: "#", hasDropdown: true },
+  { name: "Services", href: "/services", hasDropdown: true },
+  { name: "Our Blog", href: "/blog", hasDropdown: true },
 ];
 
 export function Header() {
@@ -17,46 +17,54 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-card border-b border-border/30">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-xl">E</span>
+          <Link to="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+              <Home className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-serif text-2xl font-semibold text-foreground">Everly</span>
+            <span className="font-serif text-xl font-medium text-foreground">Everly</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-sm font-medium transition-colors hover:text-primary flex items-center gap-1",
                   location.pathname === link.href
                     ? "text-primary"
-                    : "text-muted-foreground"
+                    : "text-foreground/80"
                 )}
               >
                 {link.name}
+                {link.hasDropdown && (
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                )}
               </Link>
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="default" size="default">
-              Book a Call
-            </Button>
+          {/* Right Icons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button className="p-2 text-foreground/70 hover:text-primary transition-colors">
+              <Search className="w-5 h-5" />
+            </button>
+            <button className="p-2 text-foreground/70 hover:text-primary transition-colors">
+              <Menu className="w-5 h-5" />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -65,7 +73,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <nav className="md:hidden py-4 border-t border-border">
+          <nav className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
@@ -76,15 +84,12 @@ export function Header() {
                     "text-base font-medium transition-colors hover:text-primary py-2",
                     location.pathname === link.href
                       ? "text-primary"
-                      : "text-muted-foreground"
+                      : "text-foreground/80"
                   )}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Button variant="default" size="default" className="mt-2">
-                Book a Call
-              </Button>
             </div>
           </nav>
         )}
