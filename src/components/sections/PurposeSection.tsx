@@ -1,74 +1,66 @@
-import { Heart, Shield, Award, Users } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import purposeBg from "@/assets/purpose-section.jpg";
 
 const values = [
   {
-    icon: Heart,
     title: "Compassion",
-    description: "Treating every individual with kindness, empathy, and genuine care.",
+    description: "We believe in treating every client with kindness and empathy, ensuring they feel valued and respected in every interaction.",
   },
   {
-    icon: Shield,
     title: "Integrity",
-    description: "Upholding the highest ethical standards in all our interactions.",
+    description: "We uphold the highest standards of honesty and transparency in our services. Trust is essential in caregiving.",
   },
   {
-    icon: Award,
     title: "Excellence",
-    description: "Continuously striving to exceed expectations in service delivery.",
+    description: "We are committed to delivering the highest quality of care. Our team continuously seeks improvement and innovation.",
   },
   {
-    icon: Users,
-    title: "Support",
-    description: "Building lasting relationships with families we serve.",
+    title: "Empathy",
+    description: "We listen, understand, and connect with each client's needs, delivering care with a compassionate, human touch.",
   },
 ];
 
 export function PurposeSection() {
   return (
-    <section className="relative py-24 min-h-[600px] flex items-center">
+    <section className="relative min-h-[650px] flex items-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${purposeBg})` }}
       >
-        <div className="absolute inset-0 bg-section-dark/85" />
+        <div className="absolute inset-0 bg-section-dark/60" />
       </div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto relative z-10 py-16">
+        <div className="max-w-md">
+          {/* Header */}
+          <p className="text-primary-foreground/80 text-sm tracking-wider uppercase mb-3 flex items-center gap-2">
+            <span>+</span> OUR VALUE
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl font-medium text-primary-foreground mb-8 leading-tight">
+            Caring with Purpose
+          </h2>
+
           {/* Values List */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {values.map((value, index) => (
               <div 
                 key={value.title}
-                className="flex gap-4 p-4 rounded-xl bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-colors animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="border-t border-primary-foreground/20 pt-4"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                  <value.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <h3 className="text-primary-foreground font-semibold text-lg mb-1">
-                    {value.title}
-                  </h3>
-                  <p className="text-primary-foreground/70 text-sm">
-                    {value.description}
-                  </p>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary-foreground mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-primary-foreground font-medium text-base mb-1">
+                      {value.title}
+                    </h3>
+                    <p className="text-primary-foreground/70 text-sm leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Title */}
-          <div className="lg:text-right">
-            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-primary-foreground leading-tight">
-              Caring with Purpose
-            </h2>
-            <p className="text-primary-foreground/70 text-lg mt-4 max-w-md lg:ml-auto">
-              Our core values guide everything we do, ensuring consistent, 
-              high-quality care for every family we serve.
-            </p>
           </div>
         </div>
       </div>

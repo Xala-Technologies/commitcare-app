@@ -1,79 +1,79 @@
-import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import caregiver2 from "@/assets/caregiver-2.jpg";
 
-const benefits = [
-  "Personalized care plans for every stage",
-  "Trained and certified caregivers",
-  "Flexible scheduling options",
-  "Regular progress updates",
+const steps = [
+  {
+    number: "01",
+    title: "Initial Consultation",
+    description: "We start with a free consultation to understand your loved one's unique needs",
+  },
+  {
+    number: "02",
+    title: "Personalized Care Plan",
+    description: "Based on the consultation, we create a tailored care plan that matches their lifestyle",
+  },
+  {
+    number: "03",
+    title: "Ongoing Support",
+    description: "Our caregivers provide consistent, compassionate care with regular check-ins",
+  },
 ];
 
-const infoCards = [
-  {
-    title: "Comprehensive Assessments",
-    points: ["Initial health evaluation", "Care plan development", "Family consultation"],
-  },
-  {
-    title: "Ongoing Support",
-    points: ["24/7 availability", "Regular check-ins", "Emergency response"],
-  },
+const features = [
+  "Always Caring-24/7 Support",
+  "Trusted Reliability",
 ];
 
 export function ReliableCareSection() {
   return (
-    <section className="py-24 bg-section-dark">
+    <section className="py-20 bg-background">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-primary-foreground mb-6">
-              Reliable Care for Every Stage
-            </h2>
-            <p className="text-primary-foreground/70 text-lg mb-8 leading-relaxed">
-              Whether you need short-term recovery support or long-term care, 
-              our dedicated team is here to provide the assistance you need 
-              while respecting your independence.
+            <p className="text-primary text-sm tracking-wider uppercase mb-3 flex items-center gap-2">
+              <span>+</span> HOW IT WORKS
             </p>
-            <ul className="space-y-3 mb-8">
-              {benefits.map((benefit) => (
-                <li key={benefit} className="flex items-center gap-3 text-primary-foreground/80">
-                  <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3 h-3 text-primary-foreground" />
-                  </div>
-                  {benefit}
-                </li>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-5 leading-tight">
+              Reliable Care for<br />Every Stage
+            </h2>
+            <p className="text-muted-foreground text-base mb-8 leading-relaxed max-w-md">
+              We tailor our services to meet the unique needs of each individual, ensuring comfort and dignity.
+            </p>
+            
+            {/* Features */}
+            <div className="space-y-3 mb-8">
+              {features.map((feature) => (
+                <div key={feature} className="flex items-center gap-3 text-primary">
+                  <CheckCircle className="w-5 h-5" />
+                  <span className="text-sm">{feature}</span>
+                </div>
               ))}
-            </ul>
-            <Button variant="white" size="lg">
-              Start Your Journey
-            </Button>
+            </div>
           </div>
 
-          {/* Right Content - Image + Info Cards */}
+          {/* Right Content - Image + Steps */}
           <div className="relative">
             <img 
               src={caregiver2} 
-              alt="Caregiver assisting elderly patient" 
-              className="rounded-2xl shadow-xl w-full max-w-md ml-auto"
+              alt="Caregiver in green scrubs" 
+              className="rounded-2xl w-full max-w-sm object-cover"
             />
             
-            {/* Info Cards Stack */}
-            <div className="absolute bottom-8 left-0 space-y-4 max-w-xs">
-              {infoCards.map((card) => (
+            {/* Steps Cards */}
+            <div className="absolute top-8 -right-4 lg:right-0 space-y-3 max-w-xs">
+              {steps.map((step) => (
                 <div 
-                  key={card.title}
-                  className="bg-card rounded-xl p-5 shadow-lg border border-border/50"
+                  key={step.number}
+                  className="bg-card rounded-xl p-4 shadow-lg border border-border/50"
                 >
-                  <h4 className="font-semibold text-foreground mb-3">{card.title}</h4>
-                  <ul className="space-y-2">
-                    {card.points.map((point) => (
-                      <li key={point} className="flex items-center gap-2 text-muted-foreground text-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex items-start gap-3">
+                    <span className="text-foreground/30 font-serif text-lg font-medium">{step.number}</span>
+                    <div>
+                      <h4 className="font-medium text-foreground text-sm mb-1">{step.title}</h4>
+                      <p className="text-muted-foreground text-xs leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
