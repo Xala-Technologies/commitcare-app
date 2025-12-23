@@ -31,7 +31,7 @@ import {
   Users,
 } from "lucide-react";
 import { useState } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import contactHero from "@/assets/caregiver-2.jpg";
 import { Link } from "react-router-dom";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -87,7 +87,7 @@ const Kontakt = () => {
       <section
         className="relative min-h-[35vh] md:min-h-[45vh] flex items-center pb-10 md:pb-12"
         style={{
-          backgroundImage: `url(${heroBg})`,
+          backgroundImage: `url(${contactHero})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -95,60 +95,19 @@ const Kontakt = () => {
         <div className="absolute inset-0 bg-hero/60" />
 
         <Container className="relative z-10 py-10 md:py-14 lg:py-16">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="text-primary-foreground">
-              <p className="text-primary-foreground text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center gap-2 font-semibold">
-                <span className="text-primary-foreground">+</span> KONTAKT
-              </p>
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-5 md:mb-7 text-white tracking-tight">
-                {content.hero.title}
-              </h1>
-              <p className="text-white text-lg md:text-xl mb-7 md:mb-10 max-w-md leading-relaxed font-medium">
-                {content.hero.lead}
-              </p>
-              
-              {/* Quick Contact Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                <Button
-                  asChild
-                  variant="hero"
-                  size="default"
-                  className="px-6 min-h-[48px] bg-hero-button hover:bg-hero-button/90 text-black rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-100 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 font-semibold"
-                >
-                  <a href={`tel:${content.kontaktinfo.telefon.replace(/\s/g, "")}`}>
-                    <Phone className="w-4 h-4 mr-2 inline" />
-                    Ring oss
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="heroOutline"
-                  size="default"
-                  className="px-6 min-h-[48px] border-2 border-white bg-transparent hover:bg-white/20 hover:border-white/50 text-white rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-100 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 font-semibold"
-                >
-                  <a href={`mailto:${content.kontaktinfo.epost}`}>
-                    <Mail className="w-4 h-4 mr-2 inline" />
-                    Send e-post
-                  </a>
-                </Button>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-4 md:gap-6 mt-6">
-                <div className="flex items-center gap-2 text-white/90">
-                  <Zap className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm md:text-base">Rask respons</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/90">
-                  <Shield className="w-4 h-4 text-green-400" />
-                  <span className="text-sm md:text-base">Trygg behandling</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/90">
-                  <Users className="w-4 h-4 text-blue-400" />
-                  <span className="text-sm md:text-base">Erfarne fagfolk</span>
-                </div>
-              </div>
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-6 mb-6 md:mb-8 border border-white/20">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+              <span className="text-white text-sm md:text-base font-semibold">
+                Vi er her for å hjelpe deg
+              </span>
             </div>
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-4 md:mb-6 text-white tracking-tight">
+              {content.hero.title}
+            </h1>
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+              {content.hero.lead}
+            </p>
           </div>
         </Container>
       </section>

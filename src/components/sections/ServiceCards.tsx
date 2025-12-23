@@ -72,7 +72,7 @@ export function ServiceCards() {
             return (
               <div
                 key={service.frontmatter.slug}
-                className="bg-card-token rounded-xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 border border-border/50 group"
+                className="bg-card-token rounded-xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 border border-border/50 group flex flex-col h-full"
               >
                 {/* Icon */}
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5 md:mb-6 group-hover:bg-primary/20 transition-colors">
@@ -85,14 +85,14 @@ export function ServiceCards() {
                 </h3>
 
                 {/* Summary */}
-                <p className="text-foreground/75 text-base md:text-lg mb-5 md:mb-6 leading-relaxed">
+                <p className="text-foreground/75 text-base md:text-lg mb-5 md:mb-6 leading-relaxed flex-grow">
                   {service.frontmatter.summary}
                 </p>
 
-                {/* Link */}
+                {/* Link - Aligned to bottom */}
                 <Link
                   to={`/tjenester#${service.frontmatter.slug}`}
-                  className="inline-flex items-center gap-2 text-primary-icon hover:text-primary font-semibold text-base md:text-lg group/link transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded"
+                  className="inline-flex items-center gap-2 text-primary-icon hover:text-primary font-semibold text-base md:text-lg group/link transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded mt-auto"
                 >
                   Les mer
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover/link:translate-x-1" />

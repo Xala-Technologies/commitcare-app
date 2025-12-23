@@ -23,7 +23,7 @@ import {
   FileText,
   CheckCircle,
 } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import qualityHero from "@/assets/caregiver-2.jpg";
 
 const kvalitetIcons = [
   Users, // Tett voksenoppfølging
@@ -47,11 +47,11 @@ const TrygghetOgKvalitet = () => {
         path="/trygghet-og-kvalitet"
       />
 
-      {/* A) Hero Section - Same style as Home */}
+      {/* A) Hero Section */}
       <section
         className="relative min-h-[35vh] md:min-h-[45vh] flex items-center pb-10 md:pb-12"
         style={{
-          backgroundImage: `url(${heroBg})`,
+          backgroundImage: `url(${qualityHero})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -59,34 +59,24 @@ const TrygghetOgKvalitet = () => {
         <div className="absolute inset-0 bg-hero/60" />
 
         <Container className="relative z-10 py-10 md:py-14 lg:py-16">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="text-primary-foreground">
-              <p className="text-primary-foreground text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center gap-2 font-semibold">
-                <span className="text-primary-foreground">+</span> TRYGGHET OG
-                KVALITET
-              </p>
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-5 md:mb-7 text-white tracking-tight">
-                {content.hero.title}
-              </h1>
-              <p className="text-white text-lg md:text-xl mb-7 md:mb-10 max-w-md leading-relaxed font-medium">
-                {content.hero.lead}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <Button
-                  asChild
-                  variant="hero"
-                  size="default"
-                  className="px-6 min-h-[44px] bg-hero-button hover:bg-hero-button/90 text-black rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-100 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300"
-                >
-                  <Link to="/kontakt">Ta kontakt</Link>
-                </Button>
-              </div>
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-6 mb-6 md:mb-8 border border-white/20">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+              <span className="text-white text-sm md:text-base font-semibold">
+                Trygg omsorg med fokus på kvalitet og sikkerhet
+              </span>
             </div>
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-4 md:mb-6 text-white tracking-tight">
+              {content.hero.title}
+            </h1>
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+              {content.hero.lead}
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* B) Kvalitet i praksis (6 kort) - Same style as ServiceCards */}
+      {/* B) Kvalitet i praksis (6 kort) - Alternating layout */}
       <Section variant="default">
         <Container>
           <div className="text-center max-w-2xl mx-auto pt-8 md:pt-12 mb-12 md:mb-16">
@@ -101,42 +91,85 @@ const TrygghetOgKvalitet = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {content.kvalitetIPraksis.map((punkt, index) => {
-              const IconComponent = kvalitetIcons[index] || Heart;
-              return (
-                <div
-                  key={index}
-                  className="bg-card-token rounded-xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 border border-border/50 group"
-                >
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5 md:mb-6 group-hover:bg-primary/20 transition-colors">
-                    <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-primary-icon" />
+          {/* Varied layout - mix of styles */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+              {content.kvalitetIPraksis.map((punkt, index) => {
+                const IconComponent = kvalitetIcons[index] || Heart;
+                const isFirstRow = index < 2;
+                const isLargeCard = index === 0; // First card spans full width
+                
+                if (isLargeCard) {
+                  return (
+                    <div
+                      key={index}
+                      className="lg:col-span-2 bg-card-token rounded-xl p-8 md:p-10 border border-border/50 hover:shadow-xl transition-all duration-300"
+                    >
+                      <div className="flex items-start gap-6 md:gap-8">
+                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 border-2 border-border/30">
+                          <IconComponent className="w-10 h-10 md:w-12 md:h-12 text-primary-icon" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between gap-4 mb-4">
+                            <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground">
+                              {punkt.title}
+                            </h3>
+                            <span className="text-foreground/30 font-mono text-sm md:text-base flex-shrink-0">
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                          </div>
+                          <p className="text-foreground/75 text-base md:text-lg lg:text-xl leading-relaxed">
+                            {punkt.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+                
+                return (
+                  <div
+                    key={index}
+                    className="bg-card-token rounded-xl p-6 md:p-8 border border-border/50 hover:shadow-lg transition-all duration-300 flex flex-col"
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 border border-border/30">
+                        <IconComponent className="w-8 h-8 text-primary-icon" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-start justify-between gap-2 mb-2">
+                          <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
+                            {punkt.title}
+                          </h3>
+                          <span className="text-foreground/30 font-mono text-xs flex-shrink-0">
+                            {String(index + 1).padStart(2, '0')}
+                          </span>
+                        </div>
+                        <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
+                          {punkt.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-serif text-xl md:text-2xl lg:text-3xl font-semibold text-foreground mb-4 md:mb-5">
-                    {punkt.title}
-                  </h3>
-                  <p className="text-foreground/75 text-base md:text-lg mb-5 md:mb-6 leading-relaxed">
-                    {punkt.description}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </Container>
       </Section>
 
       {/* C) Rettigheter og medvirkning (FAQ) */}
-      <Section variant="light">
+      <Section variant="dark" className="bg-section-dark">
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10 md:mb-12">
-              <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-4 flex items-center justify-center gap-2 font-semibold">
+              <p className="text-primary-foreground/90 text-sm md:text-base tracking-wider uppercase mb-4 flex items-center justify-center gap-2 font-semibold">
                 <span>+</span> RETTIGHETER OG MEDVIRKNING
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground mb-6">
                 Rettigheter og medvirkning
               </h2>
-              <p className="text-foreground/90 text-lg md:text-xl leading-relaxed">
+              <p className="text-primary-foreground/80 text-lg md:text-xl leading-relaxed">
                 Vi jobber aktivt for å sikre at barn og unge får informasjon om
                 sine rettigheter og mulighet til medvirkning
               </p>
@@ -178,23 +211,25 @@ const TrygghetOgKvalitet = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
               {content.personvern.map((punkt, index) => {
                 const IconComponent = personvernIcons[index] || Lock;
                 return (
                   <div
                     key={index}
-                    className="bg-card-token rounded-xl p-6 md:p-8 border border-border/50 hover:shadow-lg transition-all duration-300"
+                    className="bg-card-token rounded-xl p-6 md:p-8 border border-border/50 hover:shadow-lg transition-all duration-300 flex items-start gap-6"
                   >
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5 md:mb-6">
-                      <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-primary-icon" />
+                    <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 border border-border/30">
+                      <IconComponent className="w-8 h-8 text-primary-icon" />
                     </div>
-                    <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground mb-3 md:mb-4">
-                      {punkt.title}
-                    </h3>
-                    <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
-                      {punkt.description}
-                    </p>
+                    <div className="flex-1">
+                      <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground mb-3">
+                        {punkt.title}
+                      </h3>
+                      <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
+                        {punkt.description}
+                      </p>
+                    </div>
                   </div>
                 );
               })}

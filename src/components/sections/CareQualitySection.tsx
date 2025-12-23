@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -11,8 +12,8 @@ const features = [
     ),
     title: "Personal Care",
     description: "Assisting with daily rutines to enchance comfort",
-    link: "Our Team",
-    href: "/about",
+    link: "Om oss",
+    href: "/om-oss",
   },
   {
     icon: (
@@ -22,8 +23,8 @@ const features = [
     ),
     title: "Social Support",
     description: "Engaging companionship and meaningful social interactions",
-    link: "Our Services",
-    href: "/services",
+    link: "Våre tjenester",
+    href: "/tjenester",
   },
   {
     icon: (
@@ -33,7 +34,7 @@ const features = [
     ),
     title: "Health Monitoring",
     description: "Helping with mobility, exercise, and physical activities",
-    link: "Testimonials",
+    link: "Erfaringer",
     href: "#testimonials",
   },
 ];
@@ -68,12 +69,12 @@ export function CareQualitySection() {
               <p className="text-foreground/75 text-base md:text-lg leading-relaxed mb-5">
                 {feature.description}
               </p>
-              <a 
-                href={feature.href}
+              <Link 
+                to={feature.href}
                 className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded"
               >
                 <ArrowRight className="w-4 h-4" /> {feature.link}
-              </a>
+              </Link>
             </div>
           ))}
         </div>

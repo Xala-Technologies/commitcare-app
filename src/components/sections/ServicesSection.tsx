@@ -1,6 +1,7 @@
 import { ArrowRight, User } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -88,7 +89,7 @@ export function ServicesSection() {
           {services.map((service) => (
             <div 
               key={service.title}
-              className="bg-card-token rounded-xl p-4 md:p-6 hover:shadow-card-hover transition-all duration-300 border border-border/50"
+              className="bg-card-token rounded-xl p-4 md:p-6 hover:shadow-card-hover transition-all duration-300 border border-border/50 flex flex-col h-full"
             >
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 md:mb-5">
                 {service.icon}
@@ -96,7 +97,7 @@ export function ServicesSection() {
               <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground mb-3">
                 {service.title}
               </h3>
-              <p className="text-foreground/75 text-base md:text-lg mb-4 md:mb-5 leading-relaxed">
+              <p className="text-foreground/75 text-base md:text-lg mb-4 md:mb-5 leading-relaxed flex-grow">
                 {service.description}
               </p>
               <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4 md:mb-5">
@@ -106,12 +107,12 @@ export function ServicesSection() {
                   </span>
                 ))}
               </div>
-              <a 
-                href="#" 
-                className="inline-flex items-center gap-2 text-primary text-sm md:text-base font-medium hover:gap-3 transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded"
+              <Link 
+                to="/tjenester"
+                className="inline-flex items-center gap-2 text-primary text-sm md:text-base font-medium hover:gap-3 transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded mt-auto"
               >
                 <ArrowRight className="w-4 h-4" /> Les mer
-              </a>
+              </Link>
             </div>
           ))}
         </div>

@@ -26,9 +26,6 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Content */}
           <div className="text-primary-foreground">
-            <p className="text-primary-foreground text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center gap-2 font-semibold">
-              <span className="text-primary-foreground">+</span> COMMIT CARE
-            </p>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-5 md:mb-7 text-white tracking-tight">
               Trygg omsorg for<br />barn og unge
             </h1>
