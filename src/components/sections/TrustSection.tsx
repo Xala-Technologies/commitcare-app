@@ -40,20 +40,25 @@ export function TrustSection() {
             </Button>
 
             {/* Stats */}
-            <div className="flex flex-wrap items-center gap-4 md:gap-6 pt-10 border-t-2 border-primary-icon/30">
-              <div className="px-5 py-3 bg-primary-icon/15 rounded-full border-2 border-primary-icon/30 whitespace-nowrap hover:bg-primary-icon/20 transition-colors">
-                <div className="text-primary-icon text-sm md:text-base tracking-wider uppercase font-bold">
-                  ÅRS ERFARING
+            <div className="grid grid-cols-2 gap-4 md:gap-6 pt-10 border-t-2 border-primary-icon/30">
+              <div className="px-4 py-3 bg-primary-icon/15 rounded-full border-2 border-primary-icon/30 hover:bg-primary-icon/20 transition-colors">
+                <div className="text-primary-icon text-xs md:text-sm tracking-wider uppercase font-bold text-center">
+                  Individuell plan
                 </div>
               </div>
-              <div className="px-5 py-3 bg-primary-icon/15 rounded-full border-2 border-primary-icon/30 whitespace-nowrap hover:bg-primary-icon/20 transition-colors">
-                <div className="text-primary-icon text-sm md:text-base tracking-wider uppercase font-bold">
-                  RELEVANTE AKTØRER
+              <div className="px-4 py-3 bg-primary-icon/15 rounded-full border-2 border-primary-icon/30 hover:bg-primary-icon/20 transition-colors">
+                <div className="text-primary-icon text-xs md:text-sm tracking-wider uppercase font-bold text-center">
+                  Skole og fritid
                 </div>
               </div>
-              <div className="px-5 py-3 bg-primary-icon/15 rounded-full border-2 border-primary-icon/30 whitespace-nowrap hover:bg-primary-icon/20 transition-colors">
-                <div className="text-primary-icon text-sm md:text-base tracking-wider uppercase font-bold">
-                  TETT OPPFØLGING
+              <div className="px-4 py-3 bg-primary-icon/15 rounded-full border-2 border-primary-icon/30 hover:bg-primary-icon/20 transition-colors">
+                <div className="text-primary-icon text-xs md:text-sm tracking-wider uppercase font-bold text-center">
+                  Trygghet og sikkerhet
+                </div>
+              </div>
+              <div className="px-4 py-3 bg-primary-icon/15 rounded-full border-2 border-primary-icon/30 hover:bg-primary-icon/20 transition-colors">
+                <div className="text-primary-icon text-xs md:text-sm tracking-wider uppercase font-bold text-center">
+                  Målrettet utvikling
                 </div>
               </div>
             </div>

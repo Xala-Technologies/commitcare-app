@@ -1,7 +1,6 @@
-import { ArrowRight, User } from "lucide-react";
+import { User } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -100,19 +99,13 @@ export function ServicesSection() {
               <p className="text-foreground/75 text-base md:text-lg mb-4 md:mb-5 leading-relaxed flex-grow">
                 {service.description}
               </p>
-              <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4 md:mb-5">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 {service.tags.map((tag) => (
                   <span key={tag} className="flex items-center gap-1.5 text-foreground/80 text-sm font-medium">
                     <User className="w-3.5 h-3.5" /> {tag}
                   </span>
                 ))}
               </div>
-              <Link 
-                to="/tjenester"
-                className="inline-flex items-center gap-2 text-primary text-sm md:text-base font-medium hover:gap-3 transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded mt-auto"
-              >
-                <ArrowRight className="w-4 h-4" /> Les mer
-              </Link>
             </div>
           ))}
         </div>

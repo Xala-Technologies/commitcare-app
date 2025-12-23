@@ -302,22 +302,6 @@ const Jobb = () => {
                   </Link>
                 </Button>
               </div>
-              <div className="flex items-center justify-center gap-2 md:gap-3 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-5 mt-8 max-w-fit mx-auto">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-primary-foreground text-sm md:text-base font-semibold">
-                  4.9 Google review
-                </span>
-              </div>
             </div>
           </div>
         </Container>

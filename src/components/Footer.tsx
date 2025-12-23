@@ -3,11 +3,11 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/site-config";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/Logo";
 
 const serviceLinks = [
-  { name: "Tjenester", href: "/tjenester" },
-  { name: "Om oss", href: "/om-oss" },
-  { name: "Trygghet og kvalitet", href: "/trygghet-og-kvalitet" },
+  { name: "Våre tjenester", href: "/tjenester" },
+  { name: "om oss", href: "/om-oss" },
 ];
 
 const practicalLinks = [
@@ -99,9 +99,14 @@ export function Footer() {
 
             {/* Company Info */}
             <div>
-              <h3 className="font-serif text-base md:text-lg font-semibold mb-4 text-primary-foreground">
-                {siteConfig.companyName}
-              </h3>
+              <div className="mb-4">
+                <Logo 
+                  showText={true} 
+                  size="md" 
+                  linkTo="/"
+                  className="[&_span]:text-primary-foreground"
+                />
+              </div>
               {siteConfig.orgNumber && (
                 <p className="text-primary-foreground/70 text-sm md:text-base">
                   Org.nr: {siteConfig.orgNumber}

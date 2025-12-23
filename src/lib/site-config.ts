@@ -1,14 +1,14 @@
 // Site configuration for footer and contact information
 
 export const siteConfig = {
-  companyName: "Commit Care",
-  orgNumber: "123 456 789", // Optional
-  phone: "+47 12 34 56 78",
-  email: "kontakt@commitcare.no",
+  companyName: "Commit Care AS",
+  orgNumber: "933440869", // Optional
+  phone: "+47 96 66 50 01",
+  email: "info@commitcare.no",
   address: {
-    street: "Omsorgsveien 123",
-    postalCode: "0123",
-    city: "Oslo",
+    street: "Myraveien 26",
+    postalCode: "3425",
+    city: "Reistad",
   },
   openingHours: {
     // Optional

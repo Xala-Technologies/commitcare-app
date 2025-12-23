@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { ArrowRight, Heart, Shield, Users, Book, Phone, Home } from "lucide-react";
+import { Heart, Shield, Users, Book, Phone, Home } from "lucide-react";
 import { useEffect, useState } from "react";
 import { listServices, ServiceContent } from "@/lib/content";
 
@@ -47,10 +47,10 @@ export function ServiceCards() {
   }
 
   return (
-    <Section variant="light">
+    <Section variant="default" className="pt-12 md:pt-16 lg:pt-20">
       <Container>
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto pt-8 md:pt-12 mb-12 md:mb-16 lg:mb-20">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16 lg:mb-20">
           <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-3 md:mb-4 flex items-center justify-center gap-2 font-semibold">
             <span>+</span> VÅRE TJENESTER
           </p>
@@ -91,12 +91,6 @@ export function ServiceCards() {
                     <p className="text-foreground/75 text-sm md:text-base leading-relaxed mb-4 flex-grow">
                       {service.frontmatter.summary}
                     </p>
-
-                    {/* Link */}
-                    <div className="inline-flex items-center gap-2 text-primary-icon hover:text-primary font-semibold text-sm md:text-base group/link transition-all mt-auto flex-shrink-0">
-                      <span>Les mer</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
-                    </div>
                   </div>
                 </div>
               </Link>

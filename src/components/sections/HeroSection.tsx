@@ -1,118 +1,109 @@
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { Star, Clock, CheckCircle } from "lucide-react";
+import { CheckCircle, Scale } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import familyCare from "@/assets/family-care.jpg";
-import caregiver1 from "@/assets/caregiver-1.jpg";
-import caregiver2 from "@/assets/caregiver-2.jpg";
-import blog1 from "@/assets/blog-1.jpg";
-import blog2 from "@/assets/blog-2.jpg";
 
 export function HeroSection() {
   return (
+    <Fragment>
     <section 
-      className="relative min-h-[35vh] md:min-h-[45vh] flex items-center pb-10 md:pb-12"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="relative min-h-[50vh] md:min-h-[60vh] lg:min-h-[70vh] flex items-center overflow-hidden z-0"
+      aria-label="Hero section"
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-hero/60" />
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+        }}
+        aria-hidden="true"
+      />
       
-      <Container className="relative z-10 py-10 md:py-14 lg:py-16">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-primary-foreground">
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-5 md:mb-7 text-white tracking-tight">
-              Trygg omsorg for<br />barn og unge
+      {/* Gradient Overlay for better text readability */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-hero/70 via-hero/60 to-hero/80"
+        aria-hidden="true"
+      />
+      
+      {/* Content Container */}
+      <Container className="relative z-10 w-full">
+        <div className="py-12 md:py-16 lg:py-20 xl:py-24">
+          <div className="max-w-3xl">
+            {/* Main Heading */}
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[1.1] mb-6 md:mb-8 text-white tracking-tight">
+              Trygg omsorg for<br className="hidden sm:block" /> barn og unge
             </h1>
-            <p className="text-white text-lg md:text-xl mb-7 md:mb-10 max-w-md leading-relaxed font-medium">
+            
+            {/* Description */}
+            <p className="text-white/95 text-lg md:text-xl lg:text-2xl mb-8 md:mb-10 max-w-2xl leading-relaxed font-medium">
               Vi tilbyr profesjonell omsorg og støtte for barn, unge og familier med fokus på trygghet, struktur og tett oppfølging.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 mb-4">
+            
+            {/* Call to Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-6 md:mb-8">
               <Button 
                 asChild
                 variant="hero" 
-                size="default" 
-                className="px-6 min-h-[44px] bg-hero-button hover:bg-hero-button/90 text-black rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-100 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300"
+                size="lg" 
+                className="px-8 py-6 min-h-[52px] text-base md:text-lg bg-hero-button hover:bg-hero-button/90 text-black rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-100 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 font-semibold"
               >
                 <Link to="/kontakt">Ta kontakt</Link>
               </Button>
               <Button 
                 asChild
                 variant="heroOutline" 
-                size="default" 
-                className="px-6 min-h-[44px] border-2 border-white bg-transparent hover:bg-white/20 hover:border-white/50 text-white rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-100 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300"
+                size="lg" 
+                className="px-8 py-6 min-h-[52px] text-base md:text-lg border-2 border-white bg-transparent hover:bg-white/10 hover:border-white text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-100 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300 font-semibold"
               >
                 <Link to="/tjenester">Våre tjenester</Link>
               </Button>
             </div>
-            <p className="text-white/80 text-sm md:text-base">
+            
+            {/* Tagline */}
+            <p className="text-white/80 text-sm md:text-base font-medium">
               Trygghet, struktur og tett oppfølging
             </p>
           </div>
-
-          {/* Right Content - Rating Cluster */}
-          <div className="hidden lg:flex justify-end items-end h-full">
-            <div className="flex items-center gap-3 bg-hero/40 backdrop-blur-sm rounded-full py-3 px-5">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="text-primary-foreground/90 text-sm">4.9 vurdering</span>
-              <div className="flex -space-x-2 ml-2">
-                {[
-                  familyCare,
-                  caregiver1,
-                  caregiver2,
-                  blog1,
-                  blog2
-                ].map((img, i) => (
-                  <div 
-                    key={i}
-                    className="w-8 h-8 rounded-full overflow-hidden border-2 border-primary-foreground/20 flex items-center justify-center flex-shrink-0"
-                  >
-                    <img 
-                      src={img} 
-                      alt={`Bruker ${i + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </Container>
-
-      {/* Feature Strip - Overlapping */}
-      <div className="absolute bottom-0 left-[18%] translate-y-1/2 z-50 hidden md:block">
-        <div className="flex shadow-xl">
-          <div className="bg-primary px-12 py-10 flex items-start gap-6 min-w-[360px]">
-            <div className="w-14 h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0">
-              <Clock className="w-7 h-7 text-primary-foreground" />
+    </section>
+    
+    {/* Feature Strip - Overlapping (outside hero section for proper z-index) */}
+    <div className="relative -mt-[90px] md:-mt-[100px] z-[100] hidden md:block pointer-events-none bg-transparent">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-8 lg:px-12 pointer-events-none bg-transparent">
+        <div className="flex rounded-lg overflow-hidden ml-[6%] pointer-events-auto">
+          <div className="relative bg-primary px-12 py-10 flex items-start gap-6 w-[360px]">
+            <div 
+              className="w-14 h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0"
+              data-feature="1"
+            >
+              <Scale className="w-7 h-7 text-primary-foreground" />
             </div>
-            <div>
-              <h3 className="text-primary-foreground font-serif text-2xl mb-2">Kapasitet: 2 plasser</h3>
-              <p className="text-primary-foreground/70 text-base leading-relaxed">Tilgjengelig for<br />barn og unge</p>
+            <div className="flex-1 min-w-0">
+              <p className="text-primary-foreground text-base leading-relaxed">
+                Barnevernsloven § 5-1 og frivillige tiltak etter §§ 3-2 og 3-4
+              </p>
             </div>
           </div>
           <div className="w-px bg-white"></div>
-          <div className="bg-primary px-12 py-10 flex items-start gap-6 min-w-[360px]">
-            <div className="w-14 h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0">
+          <div className="relative bg-primary px-12 py-10 flex items-start gap-6 w-[360px]">
+            <div 
+              className="w-14 h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0"
+              data-feature="2"
+            >
               <CheckCircle className="w-7 h-7 text-primary-foreground" />
             </div>
-            <div>
-              <h3 className="text-primary-foreground font-serif text-2xl mb-2">Tett voksenoppfølging</h3>
-              <p className="text-primary-foreground/70 text-base leading-relaxed">Kontinuerlig støtte<br />og oppfølging</p>
+            <div className="flex-1 min-w-0">
+              <p className="text-primary-foreground text-base leading-relaxed">
+                Målgruppe: Barn og ungdom 12-18 år
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    </Fragment>
   );
 }

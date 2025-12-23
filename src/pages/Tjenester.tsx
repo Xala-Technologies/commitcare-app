@@ -60,7 +60,7 @@ const Tjenester = () => {
             <div className="inline-flex items-center gap-2 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-6 mb-6 md:mb-8 border border-white/20">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
               <span className="text-white text-sm md:text-base font-semibold">
-                Omsorgstilbud med 2 plasser for barn og unge 12–18 år
+                Omsorgstilbud for barn og unge mellom 12-18 år
               </span>
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-4 md:mb-6 text-white tracking-tight">
@@ -171,19 +171,6 @@ const Tjenester = () => {
         </Container>
       </Section>
 
-      {/* D) Limitation Section */}
-      <Section variant="default">
-        <Container>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-card-token rounded-xl p-8 md:p-10 border border-border/50 text-center">
-              <p className="text-foreground/90 text-base md:text-lg lg:text-xl leading-relaxed">
-                {content.avgrensning}
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       {/* E) Collaboration Section - Dark Background with Image */}
       <Section variant="dark" className="bg-section-dark">
         <Container>
@@ -246,16 +233,16 @@ const Tjenester = () => {
       <Section variant="default">
         <Container>
           <div className="bg-hero rounded-xl md:rounded-2xl p-8 md:p-10 lg:p-12 relative overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
+            <div className="grid gap-6 md:gap-8 items-center">
               <div className="text-center lg:text-left">
-                <p className="text-primary-foreground text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center justify-center lg:justify-start gap-2 font-semibold">
-                  <span>+</span> KONTAKT
-                </p>
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground mb-5 md:mb-6 leading-tight">
-                  Ønsker du en uforpliktende prat?
+                  Ønsker du jobbe hos oss?
                 </h2>
-                <p className="text-primary-foreground/90 text-base md:text-lg mb-6 md:mb-8 max-w-md mx-auto lg:mx-0 leading-relaxed">
-                  Har du spørsmål eller vil du diskutere hvordan vi kan hjelpe? Vi er her for å hjelpe deg videre.
+                <p className="text-primary-foreground/90 text-base md:text-lg mb-4 leading-relaxed">
+                  Vi leter etter både faglige
+                </p>
+                <p className="text-primary-foreground/90 text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                  Vi søker jevnlig dyktige medarbeidere med relevant erfaring. Er du ferdig utdannet sosionom, miljøterapeut eller vernepleier, vil vi gjerne høre fra deg. Send oss søknad og CV.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                   <Button 
@@ -264,41 +251,11 @@ const Tjenester = () => {
                     size="default" 
                     className="w-full sm:w-auto px-6 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-white/50"
                   >
-                    <Link to="/kontakt">
-                      Ta kontakt
-                      <ArrowRight className="w-4 h-4 ml-2 inline" />
-                    </Link>
-                  </Button>
-                  <Button 
-                    asChild
-                    variant="heroOutline" 
-                    size="default" 
-                    className="w-full sm:w-auto px-6 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-white/50"
-                  >
                     <Link to="/om-oss">Les mer om oss</Link>
                   </Button>
                 </div>
               </div>
 
-              {/* Right: Rating */}
-              <div className="flex justify-center lg:justify-end items-center">
-                <div className="flex items-center gap-2 md:gap-3 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-5">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span className="text-primary-foreground text-sm md:text-base font-semibold">
-                    4.9 Google review
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </Container>

@@ -48,12 +48,6 @@ const OmOss = () => {
 
         <Container className="relative z-10 py-10 md:py-14 lg:py-16">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-6 mb-6 md:mb-8 border border-white/20">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-              <span className="text-white text-sm md:text-base font-semibold">
-                Commit Care – Avdeling Lier
-              </span>
-            </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-4 md:mb-6 text-white tracking-tight">
               {content.hero.title}
             </h1>
@@ -280,7 +274,7 @@ const OmOss = () => {
       <Section variant="default">
         <Container>
           <div className="bg-hero rounded-xl md:rounded-2xl p-8 md:p-10 lg:p-12 relative overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
+            <div className="grid gap-6 md:gap-8 items-center">
               <div className="text-center lg:text-left">
                 <p className="text-primary-foreground text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center justify-center lg:justify-start gap-2 font-semibold">
                   <span>+</span> KONTAKT
@@ -314,25 +308,6 @@ const OmOss = () => {
                 </div>
               </div>
 
-              {/* Right: Rating */}
-              <div className="flex justify-center lg:justify-end items-center">
-                <div className="flex items-center gap-2 md:gap-3 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-5">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <span className="text-primary-foreground text-sm md:text-base font-semibold">
-                    4.9 Google review
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </Container>

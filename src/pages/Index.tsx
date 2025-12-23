@@ -8,7 +8,6 @@ import { PurposeSection } from "@/components/sections/PurposeSection";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ReliableCareSection } from "@/components/sections/ReliableCareSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { CTASection } from "@/components/sections/CTASection";
 
 const Index = () => {
@@ -23,7 +22,6 @@ const Index = () => {
       <PartnersSection />
       <ServicesSection />
       <ReliableCareSection />
-      <TestimonialsSection />
       <CTASection />
     </Layout>
   );

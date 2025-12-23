@@ -5,11 +5,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { name: "Hjem", href: "/" },
-  { name: "Tjenester", href: "/tjenester" },
-  { name: "Trygghet og kvalitet", href: "/trygghet-og-kvalitet" },
-  { name: "Om oss", href: "/om-oss" },
-  { name: "Jobb", href: "/jobb" },
+  { name: "Våre tjenester", href: "/tjenester" },
+  { name: "om oss", href: "/om-oss" },
 ];
 
 export function Header() {

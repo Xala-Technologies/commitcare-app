@@ -6,8 +6,8 @@
 export const publicSiteContent = {
   tjenester: {
     hero: {
-      title: "Tjenester",
-      lead: "Vi tilbyr et omsorgstilbud for barn og unge som trenger trygg ramme, struktur og tett voksenstøtte i hverdagen.",
+      title: "Våre tjenester",
+      lead: "Vi tilbyr et omsorgstilbud for barn og unge som trenger trygge rammer, struktur og tett voksenstøtte i hverdagen",
     },
     fakta: [
       {
