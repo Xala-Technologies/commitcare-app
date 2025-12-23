@@ -1,0 +1,152 @@
+/**
+ * Design Tokens
+ * 
+ * This file contains all design tokens for the application.
+ * To change the design, simply update the values below.
+ * All components reference these tokens, so changes will propagate automatically.
+ */
+
+@layer base {
+  :root {
+    /* ============================================
+       COLOR TOKENS - Primary Palette
+       ============================================ */
+    
+    /* Background Colors */
+    --token-background: 40 33% 94%; /* Warm cream #F6F1E7 */
+    --token-background-section: 40 30% 97%; /* #F8F7F3 - Section backgrounds */
+    --token-background-card: 40 20% 89%; /* #E8E6DD - Card backgrounds */
+    
+    /* Foreground Colors */
+    --token-foreground: 210 18% 6%; /* Near black #0D1114 */
+    --token-foreground-muted: 210 12% 45%; /* Muted text */
+    
+    /* Primary Brand Colors */
+    --token-primary: 181 75% 24%; /* Primary teal #0F6B6E */
+    --token-primary-light: 181 45% 35%; /* Light teal #3E7C85 (for icons) */
+    --token-primary-hero-button: 181 65% 67%; /* Light blue #70D9E7 (hero button) */
+    --token-primary-foreground: 0 0% 100%; /* White text on primary */
+    
+    /* Secondary Colors */
+    --token-secondary: 40 33% 90%;
+    --token-secondary-foreground: 210 18% 8%;
+    
+    /* Accent Colors */
+    --token-accent: 181 60% 30%;
+    --token-accent-foreground: 0 0% 100%;
+    
+    /* Semantic Colors */
+    --token-muted: 40 20% 88%;
+    --token-muted-foreground: 210 12% 45%;
+    --token-destructive: 0 84% 60%;
+    --token-destructive-foreground: 0 0% 100%;
+    
+    /* Border Colors */
+    --token-border: 40 20% 85%;
+    --token-input: 40 20% 85%;
+    --token-ring: 181 75% 24%;
+    
+    /* Special Section Colors */
+    --token-hero-bg: 220 4% 38%; /* Dark gray #5F6163 */
+    --token-section-dark: 182 71% 15%; /* Deep teal #0B3F43 */
+    --token-teal-light: 181 50% 35%;
+    --token-cream-light: 40 40% 96%;
+    --token-cream-dark: 40 25% 88%;
+    
+    /* ============================================
+       TYPOGRAPHY TOKENS
+       ============================================ */
+    
+    /* Font Families */
+    --token-font-serif: 'Playfair Display', Georgia, serif;
+    --token-font-sans: 'Inter', system-ui, sans-serif;
+    
+    /* Font Sizes */
+    --token-font-size-xs: 0.75rem; /* 12px */
+    --token-font-size-sm: 0.875rem; /* 14px */
+    --token-font-size-base: 1rem; /* 16px */
+    --token-font-size-lg: 1.125rem; /* 18px */
+    --token-font-size-xl: 1.25rem; /* 20px */
+    --token-font-size-2xl: 1.5rem; /* 24px */
+    --token-font-size-3xl: 1.875rem; /* 30px */
+    --token-font-size-4xl: 2.25rem; /* 36px */
+    --token-font-size-5xl: 3rem; /* 48px */
+    --token-font-size-6xl: 3.75rem; /* 60px */
+    --token-font-size-7xl: 4.5rem; /* 72px */
+    
+    /* Font Weights */
+    --token-font-weight-light: 300;
+    --token-font-weight-normal: 400;
+    --token-font-weight-medium: 500;
+    --token-font-weight-semibold: 600;
+    --token-font-weight-bold: 700;
+    --token-font-weight-extrabold: 800;
+    
+    /* Line Heights */
+    --token-line-height-tight: 1.2;
+    --token-line-height-normal: 1.6;
+    --token-line-height-relaxed: 1.7;
+    
+    /* Letter Spacing */
+    --token-letter-spacing-tight: -0.03em;
+    --token-letter-spacing-normal: -0.02em;
+    --token-letter-spacing-wide: -0.01em;
+    --token-letter-spacing-wider: 0.05em;
+    
+    /* ============================================
+       SPACING TOKENS
+       ============================================ */
+    
+    --token-spacing-xs: 0.25rem; /* 4px */
+    --token-spacing-sm: 0.5rem; /* 8px */
+    --token-spacing-md: 1rem; /* 16px */
+    --token-spacing-lg: 1.5rem; /* 24px */
+    --token-spacing-xl: 2rem; /* 32px */
+    --token-spacing-2xl: 3rem; /* 48px */
+    --token-spacing-3xl: 4rem; /* 64px */
+    --token-spacing-4xl: 5rem; /* 80px */
+    
+    /* ============================================
+       BORDER RADIUS TOKENS
+       ============================================ */
+    
+    --token-radius-sm: 0.25rem; /* 4px */
+    --token-radius-md: 0.5rem; /* 8px */
+    --token-radius-lg: 0.75rem; /* 12px */
+    --token-radius-xl: 1rem; /* 16px */
+    --token-radius-2xl: 1.5rem; /* 24px */
+    --token-radius-full: 9999px; /* Full rounded */
+    
+    /* ============================================
+       SHADOW TOKENS
+       ============================================ */
+    
+    --token-shadow-sm: 0 1px 2px 0 hsl(210 18% 8% / 0.05);
+    --token-shadow-md: 0 4px 6px -1px hsl(210 18% 8% / 0.08), 0 2px 4px -2px hsl(210 18% 8% / 0.06);
+    --token-shadow-lg: 0 10px 15px -3px hsl(210 18% 8% / 0.08), 0 4px 6px -4px hsl(210 18% 8% / 0.04);
+    --token-shadow-xl: 0 20px 25px -5px hsl(210 18% 8% / 0.1), 0 8px 10px -6px hsl(210 18% 8% / 0.08);
+    
+    /* ============================================
+       TRANSITION TOKENS
+       ============================================ */
+    
+    --token-transition-fast: 150ms ease;
+    --token-transition-base: 200ms ease;
+    --token-transition-slow: 300ms ease;
+    --token-transition-slower: 500ms ease;
+    
+    /* ============================================
+       Z-INDEX TOKENS
+       ============================================ */
+    
+    --token-z-base: 0;
+    --token-z-dropdown: 1000;
+    --token-z-sticky: 1020;
+    --token-z-fixed: 1030;
+    --token-z-modal-backdrop: 1040;
+    --token-z-modal: 1050;
+    --token-z-popover: 1060;
+    --token-z-tooltip: 1070;
+  }
+}
+

@@ -1,62 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import './styles/tokens.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @layer base {
   :root {
-    /* Warm Healthcare Palette */
-    --background: 40 33% 94%; /* Warm cream #F6F1E7 */
-    --foreground: 210 18% 8%; /* Near black #101418 */
+    /* Map design tokens to Tailwind CSS variables */
+    --background: var(--token-background);
+    --foreground: var(--token-foreground);
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 18% 8%;
+    --card: var(--token-background-card);
+    --card-foreground: var(--token-foreground);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 18% 8%;
+    --popover-foreground: var(--token-foreground);
 
     /* Primary Teal */
-    --primary: 181 75% 24%; /* #0F6B6E */
-    --primary-foreground: 0 0% 100%;
+    --primary: var(--token-primary);
+    --primary-foreground: var(--token-primary-foreground);
 
     /* Secondary - Light Cream */
-    --secondary: 40 33% 90%;
-    --secondary-foreground: 210 18% 8%;
+    --secondary: var(--token-secondary);
+    --secondary-foreground: var(--token-secondary-foreground);
 
     /* Muted */
-    --muted: 40 20% 88%;
-    --muted-foreground: 210 10% 40%;
+    --muted: var(--token-muted);
+    --muted-foreground: var(--token-muted-foreground);
 
     /* Accent - Teal Light */
-    --accent: 181 60% 30%;
-    --accent-foreground: 0 0% 100%;
+    --accent: var(--token-accent);
+    --accent-foreground: var(--token-accent-foreground);
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: var(--token-destructive);
+    --destructive-foreground: var(--token-destructive-foreground);
 
-    --border: 40 20% 85%;
-    --input: 40 20% 85%;
-    --ring: 181 75% 24%;
+    --border: var(--token-border);
+    --input: var(--token-input);
+    --ring: var(--token-ring);
 
-    --radius: 0.75rem;
+    --radius: var(--token-radius-lg);
 
     /* Custom Colors */
-    --hero-bg: 220 4% 38%; /* Dark gray #5F6163 */
-    --section-dark: 182 71% 15%; /* Deep teal #0B3F43 */
-    --teal-light: 181 50% 35%;
-    --cream-light: 40 40% 96%;
-    --cream-dark: 40 25% 88%;
+    --hero-bg: var(--token-hero-bg);
+    --section-dark: var(--token-section-dark);
+    --teal-light: var(--token-teal-light);
+    --cream-light: var(--token-cream-light);
+    --cream-dark: var(--token-cream-dark);
 
     /* Typography */
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: var(--token-font-serif);
+    --font-sans: var(--token-font-sans);
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(210 18% 8% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(210 18% 8% / 0.08), 0 2px 4px -2px hsl(210 18% 8% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(210 18% 8% / 0.08), 0 4px 6px -4px hsl(210 18% 8% / 0.04);
-    --shadow-xl: 0 20px 25px -5px hsl(210 18% 8% / 0.1), 0 8px 10px -6px hsl(210 18% 8% / 0.08);
+    --shadow-sm: var(--token-shadow-sm);
+    --shadow-md: var(--token-shadow-md);
+    --shadow-lg: var(--token-shadow-lg);
+    --shadow-xl: var(--token-shadow-xl);
 
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
@@ -116,57 +134,198 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: var(--font-sans);
+    font-family: var(--token-font-sans);
+    font-weight: var(--token-font-weight-normal);
+    font-size: var(--token-font-size-base);
+    line-height: var(--token-line-height-normal);
+    letter-spacing: var(--token-letter-spacing-wide);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    font-family: var(--token-font-serif);
+    font-weight: var(--token-font-weight-semibold);
+    line-height: var(--token-line-height-tight);
+    letter-spacing: var(--token-letter-spacing-normal);
+    color: hsl(var(--token-foreground));
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h5 {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: clamp(1rem, 1.125vw, 1.125rem);
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    color: hsl(var(--foreground));
+    font-weight: 400;
+    max-width: 75ch; /* Limit line length for readability */
+  }
+
+  a {
+    color: hsl(var(--primary));
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: hsl(var(--primary) / 0.8);
+  }
+
+  /* Improve text visibility and contrast */
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Better contrast for small text */
+  small, .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    letter-spacing: 0;
   }
 }
 
 @layer utilities {
   .font-serif {
-    font-family: var(--font-serif);
+    font-family: var(--token-font-serif);
+    font-weight: var(--token-font-weight-medium);
+    letter-spacing: var(--token-letter-spacing-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .font-sans {
-    font-family: var(--font-sans);
+    font-family: var(--token-font-sans);
+    font-weight: var(--token-font-weight-normal);
+    letter-spacing: var(--token-letter-spacing-wide);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .text-balance {
     text-wrap: balance;
   }
 
+  /* Improved text visibility utilities */
+  .text-visible {
+    color: hsl(var(--foreground));
+    font-weight: 400;
+  }
+
+  .text-visible-bold {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+  }
+
+  /* Better line heights */
+  .leading-relaxed {
+    line-height: 1.7;
+  }
+
+  .leading-normal {
+    line-height: 1.6;
+  }
+
+  .leading-tight {
+    line-height: 1.2;
+  }
+
+  /* Design Token Utilities */
   .bg-hero {
-    background-color: hsl(var(--hero-bg));
+    background-color: hsl(var(--token-hero-bg));
   }
 
   .bg-section-dark {
-    background-color: hsl(var(--section-dark));
+    background-color: hsl(var(--token-section-dark));
+  }
+
+  .bg-section-light {
+    background-color: hsl(var(--token-background-section));
+  }
+
+  .bg-card-token {
+    background-color: hsl(var(--token-background-card));
   }
 
   .text-cream {
-    color: hsl(var(--cream-light));
+    color: hsl(var(--token-cream-light));
+  }
+
+  .text-primary-icon {
+    color: hsl(var(--token-primary-light));
+  }
+
+  .bg-primary-icon {
+    background-color: hsl(var(--token-primary-light));
+  }
+
+  .bg-hero-button {
+    background-color: hsl(var(--token-primary-hero-button));
   }
 
   .shadow-card {
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--token-shadow-md);
   }
 
   .shadow-card-hover {
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--token-shadow-lg);
   }
 
   .gradient-hero {
-    background: linear-gradient(135deg, hsl(var(--hero-bg)) 0%, hsl(220 6% 32%) 100%);
+    background: linear-gradient(135deg, hsl(var(--token-hero-bg)) 0%, hsl(220 6% 32%) 100%);
   }
 
   .gradient-teal {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(182 71% 18%) 100%);
+    background: linear-gradient(135deg, hsl(var(--token-primary)) 0%, hsl(182 71% 18%) 100%);
   }
 }
 

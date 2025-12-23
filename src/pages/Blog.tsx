@@ -1,5 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
 import { ArrowRight } from "lucide-react";
 import blog1 from "@/assets/blog-1.jpg";
 import blog2 from "@/assets/blog-2.jpg";
@@ -57,34 +59,34 @@ const Blog = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-24 min-h-[40vh] flex items-center">
+      <section className="relative py-10 md:py-14 lg:py-24 min-h-[30vh] md:min-h-[40vh] flex items-center">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
           <div className="absolute inset-0 bg-hero/85" />
         </div>
-        <div className="container mx-auto relative z-10">
+        <Container className="relative z-10">
           <div className="max-w-2xl">
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold text-primary-foreground mb-6">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-4 md:mb-6">
               Insights & Resources
             </h1>
-            <p className="text-primary-foreground/80 text-lg">
+            <p className="text-primary-foreground/80 text-base md:text-lg">
               Tips, stories, and educational content for caregivers and families 
               navigating the home care journey.
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Categories */}
-      <section className="py-8 bg-background border-b border-border">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap gap-3">
+      <Section variant="default" className="py-6 md:py-8 border-b border-border">
+        <Container>
+          <div className="flex flex-wrap gap-2 md:gap-3">
             {categories.map((category, index) => (
               <button
                 key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-3 md:px-4 py-2 min-h-[44px] rounded-full text-xs md:text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                   index === 0
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
@@ -94,43 +96,43 @@ const Blog = () => {
               </button>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Blog Grid */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <Section variant="default" className="py-10 md:py-14 lg:py-16">
+        <Container>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {blogPosts.map((post, index) => (
               <article 
                 key={post.title + index}
-                className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 group"
+                className="bg-card-token rounded-xl md:rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-border/50 group"
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden aspect-video">
                   <img 
                     src={post.image} 
                     alt={post.title}
-                    className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
+                  <div className="absolute top-3 md:top-4 left-3 md:left-4">
+                    <span className="bg-primary text-primary-foreground text-xs font-medium px-2 md:px-3 py-1 rounded-full">
                       {post.category}
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-4 md:p-6">
                   <span className="text-muted-foreground text-xs">{post.date}</span>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-2 mt-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground mb-2 mt-2 group-hover:text-primary transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
+                  <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4">
                     {post.excerpt}
                   </p>
                   <a 
                     href="#" 
-                    className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all"
+                    className="inline-flex items-center gap-2 text-primary text-xs md:text-sm font-medium hover:gap-3 transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded"
                   >
-                    Read more <ArrowRight className="w-4 h-4" />
+                    Read more <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                   </a>
                 </div>
               </article>
@@ -138,35 +140,37 @@ const Blog = () => {
           </div>
 
           {/* Load More */}
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
+          <div className="text-center mt-8 md:mt-12">
+            <Button variant="outline" size="lg" className="min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20">
               Load More Posts
             </Button>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-section-dark">
-        <div className="container mx-auto text-center">
-          <h2 className="font-serif text-3xl font-semibold text-primary-foreground mb-4">
-            Stay Updated
-          </h2>
-          <p className="text-primary-foreground/70 text-lg mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter for the latest insights, tips, and resources.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent flex-1"
-            />
-            <Button variant="white" size="default">
-              Subscribe
-            </Button>
+      <Section variant="dark" className="bg-section-dark">
+        <Container>
+          <div className="text-center">
+            <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-primary-foreground mb-3 md:mb-4">
+              Stay Updated
+            </h2>
+            <p className="text-primary-foreground/70 text-sm md:text-base lg:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
+              Subscribe to our newsletter for the latest insights, tips, and resources.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="px-4 py-3 min-h-[44px] rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent flex-1"
+              />
+              <Button variant="white" size="default" className="min-h-[44px] focus:outline-none focus:ring-2 focus:ring-white/50">
+                Subscribe
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </Layout>
   );
 };
