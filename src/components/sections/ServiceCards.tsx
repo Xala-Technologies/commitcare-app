@@ -47,57 +47,59 @@ export function ServiceCards() {
   }
 
   return (
-    <Section variant="default">
+    <Section variant="light">
       <Container>
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto pt-8 md:pt-12 mb-12 md:mb-16">
-          <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center justify-center gap-2 font-semibold">
+        <div className="text-center max-w-2xl mx-auto pt-8 md:pt-12 mb-12 md:mb-16 lg:mb-20">
+          <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-3 md:mb-4 flex items-center justify-center gap-2 font-semibold">
             <span>+</span> VÅRE TJENESTER
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground mb-4 md:mb-5">
             Hva vi tilbyr
           </h2>
-          <p className="text-foreground/90 text-lg md:text-xl">
+          <p className="text-foreground/90 text-base md:text-lg mb-0">
             Vi tilbyr et bredt spekter av tjenester for å støtte barn, unge og familier
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-10">
-          {services.map((service) => {
+        {/* Services - Compact Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {services.map((service, index) => {
             const IconComponent = service.frontmatter.iconKey
               ? iconMap[service.frontmatter.iconKey] || Heart
               : Heart;
 
             return (
-              <div
+              <Link
                 key={service.frontmatter.slug}
-                className="bg-card-token rounded-xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 border border-border/50 group flex flex-col h-full"
+                to={`/tjenester#${service.frontmatter.slug}`}
+                className="block group h-full"
               >
-                {/* Icon */}
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5 md:mb-6 group-hover:bg-primary/20 transition-colors">
-                  <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-primary-icon" />
+                <div className="bg-card-token rounded-xl p-5 md:p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border/50 group-hover:border-primary-icon/50 h-full flex flex-col">
+                  {/* Icon */}
+                  <div className="mb-4 md:mb-5 flex-shrink-0">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300 group-hover:scale-110">
+                      <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-primary-icon" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-grow flex flex-col min-h-0">
+                    <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground mb-3 group-hover:text-primary-icon transition-colors flex-shrink-0">
+                      {service.frontmatter.title}
+                    </h3>
+                    <p className="text-foreground/75 text-sm md:text-base leading-relaxed mb-4 flex-grow">
+                      {service.frontmatter.summary}
+                    </p>
+
+                    {/* Link */}
+                    <div className="inline-flex items-center gap-2 text-primary-icon hover:text-primary font-semibold text-sm md:text-base group/link transition-all mt-auto flex-shrink-0">
+                      <span>Les mer</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+                    </div>
+                  </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="font-serif text-xl md:text-2xl lg:text-3xl font-semibold text-foreground mb-4 md:mb-5">
-                  {service.frontmatter.title}
-                </h3>
-
-                {/* Summary */}
-                <p className="text-foreground/75 text-base md:text-lg mb-5 md:mb-6 leading-relaxed flex-grow">
-                  {service.frontmatter.summary}
-                </p>
-
-                {/* Link - Aligned to bottom */}
-                <Link
-                  to={`/tjenester#${service.frontmatter.slug}`}
-                  className="inline-flex items-center gap-2 text-primary-icon hover:text-primary font-semibold text-base md:text-lg group/link transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded mt-auto"
-                >
-                  Les mer
-                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover/link:translate-x-1" />
-                </Link>
-              </div>
+              </Link>
             );
           })}
         </div>

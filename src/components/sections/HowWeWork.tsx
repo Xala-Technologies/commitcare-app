@@ -33,7 +33,7 @@ const steps = [
 
 export function HowWeWork() {
   return (
-    <Section variant="default">
+    <Section variant="light">
       <Container>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
@@ -48,39 +48,52 @@ export function HowWeWork() {
           </p>
         </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-10 md:mb-12">
-          {steps.map((step) => {
-            const IconComponent = step.icon;
-            return (
-              <div
-                key={step.number}
-                className="bg-card-token rounded-xl p-6 md:p-8 border border-border/50 hover:shadow-lg transition-all duration-300 relative"
-              >
-                {/* Step Number */}
-                <div className="absolute top-4 right-4">
-                  <span className="text-primary-icon/20 font-serif text-3xl md:text-4xl font-bold">
-                    {step.number}
-                  </span>
+        {/* Steps - Timeline Layout */}
+        <div className="relative mb-10 md:mb-12">
+          {/* Timeline Line - Hidden on mobile, visible on desktop */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 transform -translate-y-1/2"></div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6 relative">
+            {steps.map((step, index) => {
+              const IconComponent = step.icon;
+              const isLast = index === steps.length - 1;
+              
+              return (
+                <div key={step.number} className="relative">
+                  {/* Timeline Connector - Desktop only */}
+                  {!isLast && (
+                    <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-primary/20 transform -translate-y-1/2 z-0">
+                      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 rounded-full bg-primary-icon border-2 border-section-light"></div>
+                    </div>
+                  )}
+                  
+                  <div className="relative bg-card-token rounded-2xl p-6 md:p-8 border-2 border-border/30 hover:border-primary-icon/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group">
+                    {/* Step Number Badge */}
+                    <div className="absolute -top-4 left-6">
+                      <div className="w-10 h-10 rounded-full bg-primary-icon text-white flex items-center justify-center font-serif font-bold text-lg shadow-lg group-hover:scale-110 transition-transform">
+                        {step.number}
+                      </div>
+                    </div>
+
+                    {/* Icon */}
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-5 md:mb-6 group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300 group-hover:scale-110">
+                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-primary-icon" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground mb-4 group-hover:text-primary-icon transition-colors">
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-
-                {/* Icon */}
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5 md:mb-6">
-                  <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-primary-icon" />
-                </div>
-
-                {/* Title */}
-                <h3 className="font-serif text-xl md:text-2xl lg:text-3xl font-semibold text-foreground mb-4 md:mb-5 pr-16">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* CTA */}
@@ -89,7 +102,7 @@ export function HowWeWork() {
             asChild
             variant="default"
             size="lg"
-            className="rounded-lg px-8 min-h-[44px] bg-primary-icon hover:bg-primary-icon/90 text-white hover:text-white shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 active:scale-100 active:translate-y-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-icon/50"
+            className="rounded-full px-8 min-h-[44px] bg-primary-icon hover:bg-primary-icon/90 text-white hover:text-white shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 active:scale-100 active:translate-y-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-icon/50"
           >
             <Link to="/trygghet-og-kvalitet">Les mer</Link>
           </Button>

@@ -24,7 +24,7 @@ const qualityPoints = [
 
 export function QualityHighlight() {
   return (
-    <Section variant="light">
+    <Section variant="default">
       <Container>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
@@ -39,24 +39,54 @@ export function QualityHighlight() {
           </p>
         </div>
 
-        {/* Quality Points Grid */}
+        {/* Quality Points - Featured Layout with Large Center Card */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
-          {qualityPoints.map((point) => {
+          {qualityPoints.map((point, index) => {
             const IconComponent = point.icon;
+            const isCenter = index === 1;
+            
             return (
               <div
                 key={point.title}
-                className="bg-card-token rounded-xl p-6 md:p-8 border border-border/50 hover:shadow-lg transition-all duration-300"
+                className={`relative overflow-hidden rounded-2xl transition-all duration-300 ${
+                  isCenter
+                    ? "md:col-span-1 bg-gradient-to-br from-primary/15 to-primary/5 border-2 border-primary/30 p-8 md:p-10 hover:shadow-2xl hover:scale-105"
+                    : "bg-card-token border border-border/50 p-6 md:p-8 hover:shadow-lg hover:-translate-y-1"
+                }`}
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-5 md:mb-6">
-                  <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-primary-icon" />
+                {isCenter && (
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+                )}
+                <div className="relative">
+                  <div className={`flex items-center gap-4 mb-5 md:mb-6 ${
+                    isCenter ? "flex-col text-center" : ""
+                  }`}>
+                    <div className={`${
+                      isCenter 
+                        ? "w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-primary-icon to-primary/80 flex items-center justify-center shadow-lg"
+                        : "w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center"
+                    } flex-shrink-0`}>
+                      <IconComponent className={`${
+                        isCenter ? "w-10 h-10 md:w-12 md:h-12 text-white" : "w-8 h-8 text-primary-icon"
+                      }`} />
+                    </div>
+                    {!isCenter && (
+                      <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
+                        {point.title}
+                      </h3>
+                    )}
+                  </div>
+                  {isCenter && (
+                    <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4 md:mb-5 text-center">
+                      {point.title}
+                    </h3>
+                  )}
+                  <p className={`text-foreground/75 text-base md:text-lg leading-relaxed ${
+                    isCenter ? "text-center" : ""
+                  }`}>
+                    {point.description}
+                  </p>
                 </div>
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4 md:mb-5">
-                  {point.title}
-                </h3>
-                <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
-                  {point.description}
-                </p>
               </div>
             );
           })}
@@ -68,7 +98,7 @@ export function QualityHighlight() {
             asChild
             variant="default"
             size="lg"
-            className="rounded-lg px-8 min-h-[44px] bg-primary-icon hover:bg-primary-icon/90 text-white hover:text-white shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 active:scale-100 active:translate-y-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-icon/50"
+            className="rounded-full px-8 min-h-[44px] bg-primary-icon hover:bg-primary-icon/90 text-white hover:text-white shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 active:scale-100 active:translate-y-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-icon/50"
           >
             <Link to="/kontakt">Kontakt oss</Link>
           </Button>
