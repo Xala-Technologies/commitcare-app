@@ -2,31 +2,33 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 
 const partners = [
-  { name: "ePhYr", icon: "▶▶" },
-  { name: "Bigwave", icon: "≋" },
-  { name: "Humant", icon: "◎" },
-  { name: "Solara", icon: "◐" },
-  { name: "Spaceships", icon: "🚀" },
-  { name: "charlotte", icon: "❋" },
-  { name: "rbismile", icon: "☺" },
-  { name: "Whalien51", icon: "🐋" },
+  { name: "Billisim" },
+  { name: "Xala technologies AS" },
+  { name: "Bærum kommune" },
+  { name: "Innvandrerrådet i Bærum" },
+  { name: "Røde kors" },
+  { name: "Bufetat" },
+  { name: "Lier IL" },
+  { name: "Kingsmenn FC" },
+  { name: "Terapivakten" },
 ];
 
 export function PartnersSection() {
   return (
-    <Section variant="default" className="py-10 md:py-12">
+    <Section variant="default" className="py-8 md:py-10">
       <Container>
-        <p className="text-center text-foreground/90 text-sm md:text-base tracking-widest uppercase mb-8 md:mb-10 font-semibold">
-          Samarbeid og nettverk
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center">
+        <div className="text-center mb-6 md:mb-8">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground">
+            Våre samarbeidspartnere
+          </h2>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
           {partners.map((partner) => (
             <div 
               key={partner.name}
-              className="text-foreground hover:text-primary-icon transition-colors flex items-center gap-2 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-primary/20 rounded"
+              className="inline-flex items-center px-4 md:px-5 py-2 md:py-2.5 bg-card-token rounded-lg border border-border/50 hover:border-primary-icon/50 hover:bg-primary/5 transition-all duration-200 text-center group"
             >
-              <span className="text-primary-icon text-lg md:text-xl">{partner.icon}</span>
-              <span className="font-semibold text-base md:text-lg">
+              <span className="font-medium text-xs md:text-sm text-foreground group-hover:text-primary-icon transition-colors whitespace-nowrap">
                 {partner.name}
               </span>
             </div>
