@@ -221,10 +221,10 @@ export const publicSiteContent = {
       ],
     },
     kontaktinfo: {
-      postadresse: "Postboks 123, 3400 Lier",
-      besoksadresse: "Adresseveien 1, 3400 Lier",
-      epost: "kontakt@commitcare.no",
-      foretaksnummer: "123 456 789",
+      postadresse: "Myraveien 26, 3425 Reistad",
+      besoksadresse: "Myraveien 26, 3425 Reistad",
+      epost: "info@commitcare.no",
+      foretaksnummer: "933440869",
     },
   },
   jobb: {
@@ -290,11 +290,11 @@ export const publicSiteContent = {
       lead: "Vi tilbyr en uforpliktende prat for å avklare dine behov og finne ut hvordan vi kan hjelpe deg og din familie videre.",
     },
     kontaktinfo: {
-      telefon: "+47 12 34 56 78",
-      epost: "kontakt@commitcare.no",
-      postadresse: "Postboks 123, 3400 Lier",
-      besoksadresse: "Adresseveien 1, 3400 Lier",
-      foretaksnummer: "123 456 789",
+      telefon: "+47 96 66 50 01",
+      epost: "info@commitcare.no",
+      postadresse: "Myraveien 26, 3425 Reistad",
+      besoksadresse: "Myraveien 26, 3425 Reistad",
+      foretaksnummer: "933440869",
     },
   },
 };

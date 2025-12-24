@@ -346,7 +346,7 @@ const Kontakt = () => {
                   Besøk oss
                 </h3>
                 <p className="text-foreground/90 text-base md:text-lg leading-relaxed mb-4">
-                  Vi ligger sentralt plassert i Lier. Velkommen til besøk!
+                  {content.kontaktinfo.besoksadresse}
                 </p>
               </div>
 
