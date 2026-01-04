@@ -31,7 +31,7 @@ import {
   Users,
 } from "lucide-react";
 import { useState } from "react";
-import contactHero from "@/assets/caregiver-2.jpg";
+import contactHero from "@/assets/pages/kontakt/caregiver-2.jpg";
 import { Link } from "react-router-dom";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";

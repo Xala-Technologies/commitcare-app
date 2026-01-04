@@ -16,6 +16,8 @@ import TrygghetOgKvalitet from "./pages/TrygghetOgKvalitet";
 import Kontakt from "./pages/Kontakt";
 import Jobb from "./pages/Jobb";
 import Innsikt from "./pages/Innsikt";
+import Personvern from "./pages/Personvern";
+import Tilgjengelighet from "./pages/Tilgjengelighet";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/jobb" element={<Jobb />} />
             <Route path="/innsikt" element={<Innsikt />} />
+            <Route path="/personvern" element={<Personvern />} />
+            <Route path="/tilgjengelighet" element={<Tilgjengelighet />} />
             <Route path="/sitemap.xml" element={<Sitemap />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

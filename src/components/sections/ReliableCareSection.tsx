@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { CheckCircle } from "lucide-react";
-import caregiver2 from "@/assets/caregiver-2.jpg";
+import caregiver2 from "@/assets/pages/caregiver-2.jpg";
 
 export function ReliableCareSection() {
   return (

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import familyCare from "@/assets/family-care.jpg";
+import familyCare from "@/assets/pages/family-care.jpg";
 
 export function TrustSection() {
   return (

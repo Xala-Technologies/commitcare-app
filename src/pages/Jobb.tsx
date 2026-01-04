@@ -23,7 +23,7 @@ import {
   Star,
   Target,
 } from "lucide-react";
-import jobHero from "@/assets/family-care.jpg";
+import jobHero from "@/assets/pages/family-care.jpg";
 
 const hvorforIcons = [Users, Heart, Handshake];
 const rollerIcons = [Briefcase, Users, Moon, Clock];

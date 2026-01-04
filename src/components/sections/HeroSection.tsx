@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { CheckCircle, Scale } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero/hero-bg.jpg";
 
 export function HeroSection() {
   return (
@@ -62,7 +62,7 @@ export function HeroSection() {
             </div>
             
             {/* Tagline */}
-            <p className="text-white/80 text-sm md:text-base font-medium">
+            <p className="text-white/80 text-sm md:text-base font-medium mb-8 md:mb-0">
               Trygghet, struktur og tett oppfølging
             </p>
           </div>
@@ -71,32 +71,32 @@ export function HeroSection() {
     </section>
     
     {/* Feature Strip - Overlapping (outside hero section for proper z-index) */}
-    <div className="relative -mt-[90px] md:-mt-[100px] z-[100] hidden md:block pointer-events-none bg-transparent">
+    <div className="relative -mt-[20px] md:-mt-[90px] lg:-mt-[100px] z-40 pointer-events-none bg-transparent">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8 lg:px-12 pointer-events-none bg-transparent">
-        <div className="flex rounded-lg overflow-hidden ml-[6%] pointer-events-auto">
-          <div className="relative bg-primary px-12 py-10 flex items-start gap-6 w-[360px]">
+        <div className="flex flex-col md:flex-row overflow-hidden ml-0 md:ml-[6%] pointer-events-auto">
+          <div className="relative bg-primary px-6 py-8 md:px-12 md:py-10 flex items-start gap-4 md:gap-6 w-full md:w-[360px]">
             <div 
-              className="w-14 h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0"
               data-feature="1"
             >
-              <Scale className="w-7 h-7 text-primary-foreground" />
+              <Scale className="w-6 h-6 md:w-7 md:h-7 text-primary-foreground" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-primary-foreground text-base leading-relaxed">
+              <p className="text-primary-foreground text-sm md:text-base leading-relaxed">
                 Barnevernsloven § 5-1 og frivillige tiltak etter §§ 3-2 og 3-4
               </p>
             </div>
           </div>
-          <div className="w-px bg-white"></div>
-          <div className="relative bg-primary px-12 py-10 flex items-start gap-6 w-[360px]">
+          <div className="h-px md:h-auto md:w-px bg-white"></div>
+          <div className="relative bg-primary px-6 py-8 md:px-12 md:py-10 flex items-start gap-4 md:gap-6 w-full md:w-[360px]">
             <div 
-              className="w-14 h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-primary-foreground/30 flex items-center justify-center flex-shrink-0"
               data-feature="2"
             >
-              <CheckCircle className="w-7 h-7 text-primary-foreground" />
+              <CheckCircle className="w-6 h-6 md:w-7 md:h-7 text-primary-foreground" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-primary-foreground text-base leading-relaxed">
+              <p className="text-primary-foreground text-sm md:text-base leading-relaxed">
                 Målgruppe: Barn og ungdom 12-18 år
               </p>
             </div>

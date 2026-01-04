@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { ArrowRight } from "lucide-react";
-import blog1 from "@/assets/blog-1.jpg";
-import blog2 from "@/assets/blog-2.jpg";
-import blog3 from "@/assets/blog-3.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
+import blog1 from "@/assets/blog/blog-1.jpg";
+import blog2 from "@/assets/blog/blog-2.jpg";
+import blog3 from "@/assets/blog/blog-3.jpg";
+import heroBg from "@/assets/hero/hero-bg.jpg";
 
 const blogPosts = [
   {

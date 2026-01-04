@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import blog1 from "@/assets/blog-1.jpg";
-import blog2 from "@/assets/blog-2.jpg";
-import blog3 from "@/assets/blog-3.jpg";
+import blog1 from "@/assets/blog/blog-1.jpg";
+import blog2 from "@/assets/blog/blog-2.jpg";
+import blog3 from "@/assets/blog/blog-3.jpg";
 
 const blogPosts = [
   {

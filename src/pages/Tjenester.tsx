@@ -19,10 +19,11 @@ import {
   CheckCircle,
   Home,
 } from "lucide-react";
-import servicesHero from "@/assets/family-care.jpg";
-import caregiver1 from "@/assets/caregiver-1.jpg";
-import caregiver2 from "@/assets/caregiver-2.jpg";
-import familyCare from "@/assets/family-care.jpg";
+import servicesHero from "@/assets/pages/tjenester/family-care.jpg";
+import caregiver1 from "@/assets/pages/tjenester/caregiver-1.jpg";
+import caregiver2 from "@/assets/pages/tjenester/caregiver-2.jpg";
+import familyCare from "@/assets/pages/tjenester/family-care.jpg";
+import samarbeidImage from "@/assets/pages/tjenester/11.jpg";
 
 const serviceIcons = [
   Heart,
@@ -46,11 +47,11 @@ const Tjenester = () => {
       
       {/* A) Hero Section with Breadcrumbs */}
       <section 
-        className="relative min-h-[35vh] md:min-h-[45vh] flex items-center pb-10 md:pb-12"
+        className="relative min-h-[35vh] md:min-h-[45vh] flex items-center pb-10 md:pb-12 pt-16 md:pt-20"
         style={{
           backgroundImage: `url(${servicesHero})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 30%',
         }}
       >
         <div className="absolute inset-0 bg-hero/60" />
@@ -134,7 +135,8 @@ const Tjenester = () => {
                 <img
                   src={caregiver1}
                   alt="Hvem tilbudet passer for"
-                  className="w-full h-[400px] md:h-[500px] object-cover"
+                  className="w-full h-[400px] md:h-[500px] object-cover object-center"
+                  style={{ objectPosition: 'center 30%' }}
                 />
               </div>
             </div>
@@ -219,7 +221,7 @@ const Tjenester = () => {
             <div>
               <div className="rounded-xl overflow-hidden">
                 <img
-                  src={familyCare}
+                  src={samarbeidImage}
                   alt="Samarbeid i praksis"
                   className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 />

@@ -23,7 +23,7 @@ import {
   FileText,
   CheckCircle,
 } from "lucide-react";
-import qualityHero from "@/assets/caregiver-2.jpg";
+import qualityHero from "@/assets/pages/caregiver-2.jpg";
 
 const kvalitetIcons = [
   Users, // Tett voksenoppfølging

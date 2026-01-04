@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Heart, Users, Pill, Car, Home, Smile, Activity, Clock, ArrowRight, Check } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero/hero-bg.jpg";
 
 const services = [
   {

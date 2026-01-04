@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero/hero-bg.jpg";
 
 const contactInfo = [
   {
@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["hello@everly.care", "support@everly.care"],
+    details: ["info@commitcare.no"],
   },
   {
     icon: MapPin,

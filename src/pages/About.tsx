@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Heart, Users, Award, Clock } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
-import caregiver1 from "@/assets/caregiver-1.jpg";
-import familyCare from "@/assets/family-care.jpg";
+import heroBg from "@/assets/hero/hero-bg.jpg";
+import caregiver1 from "@/assets/pages/caregiver-1.jpg";
+import familyCare from "@/assets/pages/family-care.jpg";
 
 const values = [
   {
@@ -51,7 +51,7 @@ const About = () => {
         <Container className="relative z-10">
           <div className="max-w-2xl">
             <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-4 md:mb-6">
-              About Everly Care
+              About Commit Care
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg">
               For over 15 years, we've been dedicated to providing exceptional home care 

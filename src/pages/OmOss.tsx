@@ -19,10 +19,10 @@ import {
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
-import aboutHero from "@/assets/caregiver-1.jpg";
-import caregiver1 from "@/assets/caregiver-1.jpg";
-import caregiver2 from "@/assets/caregiver-2.jpg";
-import familyCare from "@/assets/family-care.jpg";
+import aboutHero from "@/assets/pages/om-oss/omoss-hero.jpg";
+import caregiver1 from "@/assets/pages/om-oss/caregiver-1.jpg";
+import caregiver2 from "@/assets/pages/om-oss/caregiver-2.jpg";
+import familyCare from "@/assets/pages/om-oss/family-care.jpg";
 
 const OmOss = () => {
   const content = publicSiteContent.omOss;
@@ -101,6 +101,7 @@ const OmOss = () => {
                 src={familyCare}
                 alt="Familie og samarbeid"
                 className="w-full h-[300px] md:h-[400px] object-cover"
+                style={{ objectPosition: 'center 30%' }}
               />
             </div>
             <div className="rounded-xl overflow-hidden">
@@ -108,6 +109,7 @@ const OmOss = () => {
                 src={caregiver1}
                 alt="Omsorg og støtte"
                 className="w-full h-[300px] md:h-[400px] object-cover"
+                style={{ objectPosition: 'center 30%' }}
               />
             </div>
           </div>
@@ -130,14 +132,15 @@ const OmOss = () => {
       {/* C) Caring with Purpose - Core Values (Dark Background) */}
       <Section variant="dark" className="bg-section-dark">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
             {/* Left: Image */}
             <div className="order-2 lg:order-1">
-              <div className="rounded-xl overflow-hidden">
+              <div className="rounded-xl overflow-hidden w-full">
                 <img
                   src={caregiver2}
                   alt="Våre verdier i praksis"
-                  className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                  className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover"
+                  style={{ objectPosition: 'center 30%' }}
                 />
               </div>
             </div>

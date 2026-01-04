@@ -7,7 +7,7 @@ import { Logo } from "@/components/Logo";
 
 const serviceLinks = [
   { name: "Våre tjenester", href: "/tjenester" },
-  { name: "om oss", href: "/om-oss" },
+  { name: "Om oss", href: "/om-oss" },
 ];
 
 const practicalLinks = [

@@ -1,6 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import purposeBg from "@/assets/purpose-section.jpg";
+import purposeBg from "@/assets/sections/purpose-section.jpg";
 
 const values = [
   {
