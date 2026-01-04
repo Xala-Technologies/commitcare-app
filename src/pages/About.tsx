@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Heart, Users, Award, Clock } from "lucide-react";
 import heroBg from "@/assets/hero/hero-bg.jpg";
-import caregiver1 from "@/assets/pages/caregiver-1.jpg";
+import caregiver1 from "@/assets/pages/om-oss/caregiver-1.jpg";
 import familyCare from "@/assets/pages/family-care.jpg";
 
 const values = [

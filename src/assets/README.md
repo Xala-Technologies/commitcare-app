@@ -14,14 +14,14 @@ assets/
 │   └── services-bg.jpg
 │
 ├── pages/             # Page-specific images
+│   ├── about/         # About page images
+│   ├── om-oss/        # Om oss page images
+│   ├── tjenester/     # Tjenester page images
+│   ├── kontakt/       # Kontakt page images
+│   ├── jobb/          # Jobb page images
 │   ├── caregiver-1.jpg
 │   ├── caregiver-2.jpg
 │   └── family-care.jpg
-│
-├── blog/              # Blog post images
-│   ├── blog-1.jpg
-│   ├── blog-2.jpg
-│   └── blog-3.jpg
 │
 └── reference/         # Reference documents/images
     ├── page_1.jpg
@@ -41,11 +41,9 @@ assets/
 
 3. **Page Images**: Place page-specific images in `pages/` folder
    - Used for individual page hero sections and content
+   - Each page should have its own subfolder (e.g., `pages/om-oss/`, `pages/tjenester/`)
 
-4. **Blog Images**: Place blog post images in `blog/` folder
-   - Used for blog post thumbnails and featured images
-
-5. **Reference Documents**: Place reference documents in `reference/` folder
+4. **Reference Documents**: Place reference documents in `reference/` folder
    - Used for documents, certificates, or reference materials
 
 ## Image Naming Convention

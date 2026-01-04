@@ -8,7 +8,6 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Tjenester from "./pages/Tjenester";
 import OmOss from "./pages/OmOss";
@@ -35,7 +34,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             {/* Norwegian routes */}
             <Route path="/tjenester" element={<Tjenester />} />
