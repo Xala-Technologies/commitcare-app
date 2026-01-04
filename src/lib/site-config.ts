@@ -6,9 +6,9 @@ export const siteConfig = {
   phone: "+47 96 66 50 01",
   email: "info@commitcare.no",
   address: {
-    street: "Myraveien 26",
-    postalCode: "3425",
-    city: "Reistad",
+    street: "Nesbruveien 75",
+    postalCode: "1394",
+    city: "Nesbru",
   },
   openingHours: {
     // Optional

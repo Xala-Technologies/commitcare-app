@@ -22,12 +22,12 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/40 shadow-sm">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+      <div className="w-full">
+        <div className="w-full px-5 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex items-center justify-between h-16 md:h-20">
+          {/* Logo - Left side */}
           <Link 
             to="/" 
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group flex-shrink-0"
             onClick={() => setIsOpen(false)}
             aria-label="Commit Care hjem"
           >
@@ -91,7 +91,7 @@ export function Header() {
           </Link>
 
           {/* Right Side - Navigation + CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
             {/* Desktop Navigation */}
             <nav className="flex items-center gap-1" aria-label="Hovednavigasjon">
               {navLinks.map((link) => (

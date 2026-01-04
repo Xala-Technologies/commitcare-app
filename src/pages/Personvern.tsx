@@ -54,7 +54,7 @@ const Personvern = () => {
                       <strong>Organisasjonsnummer:</strong> 933440869
                     </p>
                     <p>
-                      <strong>Adresse:</strong> Myraveien 26, 3425 Reistad
+                      <strong>Adresse:</strong> Nesbruveien 75, 1394 Nesbru
                     </p>
                     <p>
                       <strong>E-post:</strong> info@commitcare.no
