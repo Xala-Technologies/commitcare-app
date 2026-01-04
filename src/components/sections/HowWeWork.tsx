@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Phone, FileText, Heart, ArrowRight as ArrowRightIcon } from "lucide-react";
@@ -96,17 +94,6 @@ export function HowWeWork() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Button
-            asChild
-            variant="default"
-            size="lg"
-            className="rounded-full px-8 min-h-[44px] bg-primary-icon hover:bg-primary-icon/90 text-white hover:text-white shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 active:scale-100 active:translate-y-0 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-icon/50"
-          >
-            <Link to="/trygghet-og-kvalitet">Les mer</Link>
-          </Button>
-        </div>
       </Container>
     </Section>
   );
