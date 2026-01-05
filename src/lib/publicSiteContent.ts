@@ -221,8 +221,8 @@ export const publicSiteContent = {
       ],
     },
     kontaktinfo: {
-      postadresse: "Nesbruveien 75, 1394 Nesbru",
-      besoksadresse: "Nesbruveien 75, 1394 Nesbru",
+      postadresse: "Myraveien 26, 3425 Reistad",
+      besoksadresse: "Myraveien 26, 3425 Reistad",
       epost: "info@commitcare.no",
       foretaksnummer: "933440869",
     },
@@ -292,8 +292,8 @@ export const publicSiteContent = {
     kontaktinfo: {
       telefon: "+47 96 66 50 01",
       epost: "info@commitcare.no",
-      postadresse: "Nesbruveien 75, 1394 Nesbru",
-      besoksadresse: "Nesbruveien 75, 1394 Nesbru",
+      postadresse: "Myraveien 26, 3425 Reistad",
+      besoksadresse: "Myraveien 26, 3425 Reistad",
       foretaksnummer: "933440869",
     },
   },

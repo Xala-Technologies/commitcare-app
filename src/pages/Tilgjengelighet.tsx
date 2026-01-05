@@ -152,7 +152,7 @@ const Tilgjengelighet = () => {
                     <ul className="list-none space-y-2 ml-4">
                       <li>E-post: <a href="mailto:info@commitcare.no" className="text-primary-icon hover:text-primary underline">info@commitcare.no</a></li>
                       <li>Telefon: <a href="tel:+479665001" className="text-primary-icon hover:text-primary underline">+47 96 66 50 01</a></li>
-                      <li>Postadresse: Nesbruveien 75, 1394 Nesbru</li>
+                      <li>Postadresse: Myraveien 26, 3425 Reistad</li>
                     </ul>
                     <p className="mt-4">
                       Vi svarer på henvendelser innen 5 virkedager.
