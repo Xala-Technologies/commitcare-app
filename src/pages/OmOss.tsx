@@ -229,7 +229,7 @@ const OmOss = () => {
                   Hva slags tjenester tilbyr dere?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/90 text-base md:text-lg leading-relaxed pb-4 pt-2">
-                  Vi tilbyr et omsorgstilbud med 2 plasser for barn og unge i alderen 12–18 år. Våre tjenester inkluderer døgnkontinuerlig tilstedeværelse, individuell oppfølging, skole og struktur, aktivitet og mestring, samt samarbeid med nettverk.
+                  Vi tilbyr et omsorgstilbud for barn og unge i alderen 12–18 år. Våre tjenester inkluderer døgnkontinuerlig tilstedeværelse, individuell oppfølging, skole og struktur, aktivitet og mestring, samt samarbeid med nettverk.
                 </AccordionContent>
               </AccordionItem>
 
@@ -265,7 +265,7 @@ const OmOss = () => {
                   Hva er målgruppen for tilbudet?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/90 text-base md:text-lg leading-relaxed pb-4 pt-2">
-                  Vårt tilbud er rettet mot barn og unge i alderen 12–18 år som trenger omsorg og støtte. Vi har 2 plasser og jobber med fokus på kontinuitet og tett oppfølging.
+                  Vårt tilbud er rettet mot barn og unge i alderen 12–18 år som trenger omsorg og støtte. Vi jobber med fokus på kontinuitet og tett oppfølging.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

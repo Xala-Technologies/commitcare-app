@@ -11,10 +11,6 @@ export const publicSiteContent = {
     },
     fakta: [
       {
-        title: "2 plasser",
-        description: "Kapasitet for to plasser",
-      },
-      {
         title: "12–18 år",
         description: "Aldersgruppe",
       },
@@ -177,7 +173,7 @@ export const publicSiteContent = {
   omOss: {
     hero: {
       title: "Om oss",
-      lead: "Commit Care – Avdeling Lier er et omsorgstilbud med 2 plasser for barn og unge i alderen 12–18 år. Vi tilbyr en trygg ramme med struktur, forutsigbarhet og tett voksenstøtte.",
+      lead: "Commit Care – Avdeling Lier er et omsorgstilbud for barn og unge i alderen 12–18 år. Vi tilbyr en trygg ramme med struktur, forutsigbarhet og tett voksenstøtte.",
     },
     kortOmAvdelingen: [
       {
@@ -185,8 +181,8 @@ export const publicSiteContent = {
         description: "Vår avdeling i Lier",
       },
       {
-        title: "2 plasser, 12–18 år",
-        description: "Kapasitet og målgruppe",
+        title: "12–18 år",
+        description: "Målgruppe",
       },
       {
         title: "Buskerud",
@@ -235,7 +231,7 @@ export const publicSiteContent = {
     hvorforCommitCare: [
       {
         title: "Tett oppfølging og små forhold",
-        description: "Vi jobber i små forhold med 2 plasser, noe som gir mulighet for tett oppfølging og meningsfulle relasjoner med barn og unge.",
+        description: "Vi jobber i små forhold, noe som gir mulighet for tett oppfølging og meningsfulle relasjoner med barn og unge.",
       },
       {
         title: "Struktur og faglig utvikling",
