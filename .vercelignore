@@ -1,0 +1,2 @@
+# Avoid conflict: only one handler per /api/kontakt. Use .ts on Vercel; .php is for one.com.
+api/kontakt.php
