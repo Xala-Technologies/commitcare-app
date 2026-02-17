@@ -337,6 +337,23 @@ The project is configured for deployment on Vercel:
    - Output Directory: `dist`
    - Framework Preset: Vite
 
+**Contact form email (Vercel):** For the Kontakt page to send emails to you, set these in your Vercel project (**Settings → Environment Variables**), then redeploy:
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `RESEND_API_KEY` | Your Resend API key | From [resend.com](https://resend.com) |
+| `CONTACT_EMAIL` | Where contact form submissions are sent | `info@commitcare.no` |
+| `RESEND_FROM_EMAIL` | Verified sender address in Resend | `noreply@commitcare.no` |
+
+The form posts to `/api/kontakt` (Vercel serverless function), which sends email via Resend to `CONTACT_EMAIL`.
+
+**Contact form still not working?**
+
+1. **"API ikke funnet" / 404** – The site may be served from one.com while the API runs on Vercel. Either point your domain (commitcare.no) to Vercel so the whole site runs there, or set `VITE_CONTACT_API_URL=https://<your-vercel-app>.vercel.app/api/kontakt` when building the site that runs on one.com.
+2. **"E-posttjenesten er ikke konfigurert"** – Add `RESEND_API_KEY` in Vercel → Settings → Environment Variables and redeploy.
+3. **"Kunne ikke sende e-post"** – In [Resend](https://resend.com), verify the domain you use in `RESEND_FROM_EMAIL` (e.g. commitcare.no). Unverified senders are rejected.
+4. Check **Vercel → Project → Logs** (or **Functions** tab) after submitting the form to see server-side errors.
+
 ### Manual Deployment
 
 ```bash
@@ -356,16 +373,20 @@ The application can be deployed to any static hosting service:
 
 ## 🔐 Environment Variables
 
-Create a `.env` file in the root directory for environment-specific variables:
+**Frontend (optional):** Create a `.env` file in the root for local/override:
 
 ```env
-# API Configuration
-VITE_CONTACT_API_URL=/api/kontakt
-
-# Add other variables as needed
+# Override contact API (only if form is on another domain than the API)
+# VITE_CONTACT_API_URL=https://your-app.vercel.app/api/kontakt
 ```
 
-**Note**: Variables must be prefixed with `VITE_` to be accessible in the browser.
+**Vercel (required for contact form):** In Vercel project **Settings → Environment Variables**, add:
+
+- `RESEND_API_KEY` – Resend API key
+- `CONTACT_EMAIL` – e.g. `info@commitcare.no`
+- `RESEND_FROM_EMAIL` – verified sender, e.g. `noreply@commitcare.no`
+
+**Note**: Frontend variables must be prefixed with `VITE_` to be exposed in the browser. Never put `RESEND_API_KEY` in frontend env.
 
 ## 📜 Available Scripts
 

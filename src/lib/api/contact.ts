@@ -85,8 +85,8 @@ export function recordSubmission(): void {
   }
 }
 
-// API endpoint URL - in production, this should point to your backend/serverless function
-// For development, you can use Vite proxy or a local backend
+// API endpoint: Vercel serverless function (when deployed on Vercel)
+// Override with VITE_CONTACT_API_URL for one.com (e.g. point to Vercel API URL)
 const API_ENDPOINT = import.meta.env.VITE_CONTACT_API_URL || "/api/kontakt";
 
 export async function submitContactForm(data: ContactFormData): Promise<{ success: boolean; message: string }> {
@@ -113,11 +113,26 @@ export async function submitContactForm(data: ContactFormData): Promise<{ succes
       body: JSON.stringify(validated),
     });
 
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({ message: "En feil oppstod" }));
+    let result: { success?: boolean; message?: string };
+    try {
+      result = await response.json();
+    } catch {
+      // Server returned non-JSON (e.g. HTML error page)
+      const statusHint = response.status === 404
+        ? " (API ikke funnet – sjekk at du er på riktig domene/deploy)"
+        : response.status >= 500
+          ? " (serverfeil – sjekk Vercel/Resend-innstillinger)"
+          : "";
       return {
         success: false,
-        message: error.message || "Kunne ikke sende melding. Vennligst prøv igjen senere.",
+        message: `Kunne ikke sende melding${statusHint}. Vennligst prøv igjen senere.`,
+      };
+    }
+
+    if (!response.ok) {
+      return {
+        success: false,
+        message: result.message || "Kunne ikke sende melding. Vennligst prøv igjen senere.",
       };
     }
 
@@ -125,8 +140,8 @@ export async function submitContactForm(data: ContactFormData): Promise<{ succes
     recordSubmission();
 
     return {
-      success: true,
-      message: "Meldingen din er sendt! Vi tar kontakt så snart som mulig.",
+      success: result.success ?? true,
+      message: result.message || "Meldingen din er sendt! Vi tar kontakt så snart som mulig.",
     };
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -135,7 +150,13 @@ export async function submitContactForm(data: ContactFormData): Promise<{ succes
         message: error.errors[0]?.message || "Ugyldig skjemadata",
       };
     }
-
+    // Network error (fetch failed, no response)
+    if (error instanceof TypeError && (error.message === "Failed to fetch" || error.message.includes("NetworkError"))) {
+      return {
+        success: false,
+        message: "Kunne ikke nå serveren. Sjekk internettforbindelsen og prøv igjen.",
+      };
+    }
     return {
       success: false,
       message: "En uventet feil oppstod. Vennligst prøv igjen senere.",

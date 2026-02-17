@@ -189,9 +189,9 @@ const Kontakt = () => {
       {/* C) Kontaktskjema og Kart - Enhanced Side by side */}
       <Section variant="light">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-stretch">
             {/* Kontaktskjema - Enhanced */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 flex flex-col min-h-0">
               <div className="mb-6 md:mb-8">
                 <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-3 flex items-center gap-2 font-semibold">
                   <MessageSquare className="w-4 h-4" />
@@ -336,8 +336,8 @@ const Kontakt = () => {
             </div>
 
             {/* Kart - Enhanced */}
-            <div className="order-1 lg:order-2">
-              <div className="mb-6 md:mb-8">
+            <div className="order-1 lg:order-2 flex flex-col min-h-0">
+              <div className="mb-6 md:mb-8 flex-shrink-0">
                 <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-3 flex items-center gap-2 font-semibold">
                   <MapPin className="w-4 h-4" />
                   <span>FINN OSS</span>
@@ -350,17 +350,16 @@ const Kontakt = () => {
                 </p>
               </div>
 
-              {/* Google Maps Embed */}
-              <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-border/50 hover:shadow-2xl transition-shadow duration-300">
+              {/* Google Maps Embed - grows to fill column and stay aligned with form */}
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-border/50 hover:shadow-2xl transition-shadow duration-300 flex-1 min-h-[280px] md:min-h-[360px]">
                 <iframe
                   src={mapEmbedUrl}
                   width="100%"
-                  height="500"
-                  style={{ border: 0 }}
+                  height="100%"
+                  className="absolute inset-0 w-full h-full border-0"
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
                   title="Commit Care lokasjon"
                 />
               </div>
