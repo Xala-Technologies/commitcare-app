@@ -61,7 +61,7 @@ const Tjenester = () => {
             <div className="inline-flex items-center gap-2 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-6 mb-6 md:mb-8 border border-white/20">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
               <span className="text-white text-sm md:text-base font-semibold">
-                Omsorgstilbud for barn og unge mellom 12-18 år
+                Omsorgstilbud for barn og unge mellom 13-18 år
               </span>
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-4 md:mb-6 text-white tracking-tight">

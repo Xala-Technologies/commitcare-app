@@ -11,7 +11,7 @@ export const publicSiteContent = {
     },
     fakta: [
       {
-        title: "12–18 år",
+        title: "13–18 år",
         description: "Aldersgruppe",
       },
       {
@@ -173,7 +173,7 @@ export const publicSiteContent = {
   omOss: {
     hero: {
       title: "Om oss",
-      lead: "Commit Care – Avdeling Lier er et omsorgstilbud for barn og unge i alderen 12–18 år. Vi tilbyr en trygg ramme med struktur, forutsigbarhet og tett voksenstøtte.",
+      lead: "Commit Care – Avdeling Lier er et omsorgstilbud for barn og unge i alderen 13–18 år. Vi tilbyr en trygg ramme med struktur, forutsigbarhet og tett voksenstøtte.",
     },
     kortOmAvdelingen: [
       {
@@ -181,7 +181,7 @@ export const publicSiteContent = {
         description: "Vår avdeling i Lier",
       },
       {
-        title: "12–18 år",
+        title: "13–18 år",
         description: "Målgruppe",
       },
       {

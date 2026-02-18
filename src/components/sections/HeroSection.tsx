@@ -97,7 +97,7 @@ export function HeroSection() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-primary-foreground text-sm md:text-base leading-relaxed">
-                Målgruppe: Barn og ungdom 12-18 år
+                Målgruppe: Barn og ungdom 13-18 år
               </p>
             </div>
           </div>
