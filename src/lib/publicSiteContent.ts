@@ -235,27 +235,6 @@ export const publicSiteContent = {
       title: "Om oss",
       lead: "Commit Care – Avdeling Lier er et omsorgstilbud for barn og unge i alderen 12–18 år. Vi tilbyr en trygg ramme med struktur, forutsigbarhet og tett voksenstøtte.",
     },
-    kortOmAvdelingen: [
-      {
-        slug: "lier",
-        eyebrow: "Nåværende lokasjon",
-        title: "Commit Care – Avdeling Lier",
-        description:
-          "Trygg ramme med struktur, forutsigbarhet og tett voksenstøtte for barn og unge 12–18 år.",
-        body: "Avdelingen i Lier er i drift med fokus på kontinuitet, miljøterapeutisk arbeid i hverdagen og tett samarbeid med familie og tjenesteapparat.",
-        address: "Myraveien 26 A, 3425 Reistad",
-        city: "Lier",
-      },
-      {
-        slug: "ronningen",
-        eyebrow: "Inn på tunet",
-        title: "Commit Care – Avdeling Rønningen",
-        description:
-          "Inn på tunet på Rønningen gård: strukturert og trygt tilbud for elever på 5.–10. trinn som har behov for en alternativ læringsarena i kombinasjon med ordinær skolegang.",
-        body: "Praktisk læring, mindre grupper, tydelige voksne og tilpasset skolehverdag. Ta kontakt for spørsmål om tilbud og samarbeid.",
-        city: "Rønningen",
-      },
-    ],
     varTilnaerming: [
       {
         title: "Relasjon og trygghet",

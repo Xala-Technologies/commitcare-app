@@ -158,15 +158,31 @@ export function Header() {
                     />
                   )}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="min-w-[220px] max-w-[min(100vw-2rem,280px)]">
+                <DropdownMenuContent
+                  align="start"
+                  sideOffset={8}
+                  className={cn(
+                    "min-w-[240px] max-w-[min(100vw-2rem,300px)] rounded-xl p-1.5",
+                    "border border-border/40 shadow-md shadow-black/[0.06]",
+                    "bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/90",
+                    "text-foreground",
+                  )}
+                >
                   {locations.map((loc) => (
-                    <DropdownMenuItem key={loc.slug} asChild>
+                    <DropdownMenuItem
+                      key={loc.slug}
+                      asChild
+                      className={cn(
+                        "cursor-pointer rounded-lg px-3 py-2.5 text-sm md:text-base font-semibold",
+                        "text-foreground outline-none transition-colors",
+                        "data-[highlighted]:bg-accent/50 data-[highlighted]:text-foreground",
+                        "focus:bg-accent/50 focus:text-foreground",
+                        loc.slug === activeLocationSlug && "bg-accent/30 text-primary",
+                      )}
+                    >
                       <Link
                         to={`/lokasjoner/${loc.slug}`}
-                        className={cn(
-                          "whitespace-normal",
-                          loc.slug === activeLocationSlug && "bg-accent/40 font-semibold text-primary"
-                        )}
+                        className="w-full whitespace-normal"
                         aria-label={loc.name}
                         aria-current={loc.slug === activeLocationSlug ? "page" : undefined}
                       >

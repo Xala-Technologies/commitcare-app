@@ -3,10 +3,8 @@ import { SEO } from "@/components/SEO";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { publicSiteContent } from "@/lib/publicSiteContent";
-import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
@@ -19,18 +17,11 @@ import {
   Handshake,
   CheckCircle,
   ArrowRight,
-  MapPin,
 } from "lucide-react";
 import aboutHero from "@/assets/pages/om-oss/omoss-hero.png";
 import caregiver1 from "@/assets/pages/om-oss/caregiver-1.jpg";
 import caregiver2 from "@/assets/pages/om-oss/caregiver-2.jpg";
 import familyCare from "@/assets/pages/om-oss/family-care.jpg";
-
-/** Hus-/bygningsbilder for lokasjonsseksjonen (filer i `public/locations/`) */
-const avdelingBilder: Record<string, string> = {
-  lier: "/locations/avdeling-lier.jpg",
-  ronningen: "/locations/avdeling-ronningen.png",
-};
 
 const OmOss = () => {
   const content = publicSiteContent.omOss;
@@ -224,107 +215,7 @@ const OmOss = () => {
         </Container>
       </Section>
 
-      {/* E) Vår avdeling Section — bilde + tekst, vekslende layout */}
-      <Section variant="default">
-        <Container>
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-              <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center justify-center gap-2 font-semibold">
-                <span>+</span> VÅR AVDELING
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-4 md:mb-5">
-                Våre lokasjoner
-              </h2>
-              <p className="text-foreground/80 text-base md:text-lg leading-relaxed">
-                Vi har drift i Lier og tilbyr Inn på tunet på Rønningen gård. Her får du en kort oversikt – ta gjerne kontakt for mer detaljer.
-              </p>
-            </div>
-
-            <div className="space-y-14 md:space-y-20 lg:space-y-24">
-              {content.kortOmAvdelingen.map((item, index) => {
-                const slug = "slug" in item ? item.slug : `avdeling-${index}`;
-                const imageSrc = avdelingBilder[slug] ?? "/locations/avdeling-lier.jpg";
-                const imageFirst = index % 2 === 0;
-                const eyebrow = "eyebrow" in item ? item.eyebrow : null;
-                const body = "body" in item ? item.body : item.description;
-                const address = "address" in item && item.address ? item.address : null;
-                const city = "city" in item && item.city ? item.city : null;
-
-                return (
-                  <div
-                    key={slug}
-                    className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center"
-                  >
-                    <div
-                      className={cn(
-                        "order-2 lg:order-none",
-                        imageFirst ? "lg:order-1" : "lg:order-2"
-                      )}
-                    >
-                      <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-lg aspect-[4/3] lg:aspect-[5/4] bg-muted">
-                        <img
-                          src={imageSrc}
-                          alt={item.title}
-                          className="absolute inset-0 w-full h-full object-cover"
-                          style={{ objectPosition: "center 45%" }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent pointer-events-none" />
-                        {city && (
-                          <p className="absolute bottom-4 left-4 right-4 text-primary-foreground font-serif text-lg md:text-xl font-semibold drop-shadow-sm">
-                            {city}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div
-                      className={cn(
-                        "order-1 lg:order-none space-y-4 md:space-y-5",
-                        imageFirst ? "lg:order-2" : "lg:order-1"
-                      )}
-                    >
-                      {eyebrow && (
-                        <Badge variant="secondary" className="text-xs font-semibold tracking-wide uppercase">
-                          {eyebrow}
-                        </Badge>
-                      )}
-                      <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground leading-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-foreground/90 text-base md:text-lg leading-relaxed font-medium">
-                        {item.description}
-                      </p>
-                      <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
-                        {body}
-                      </p>
-                      {address && (
-                        <p className="flex items-start gap-2 text-foreground/80 text-sm md:text-base">
-                          <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
-                          <span>{address}</span>
-                        </p>
-                      )}
-                      <div className="pt-2">
-                        <Button
-                          asChild
-                          variant="default"
-                          className="rounded-full min-h-[44px] px-6"
-                        >
-                          <Link to="/kontakt">
-                            Ta kontakt om denne avdelingen
-                            <ArrowRight className="w-4 h-4 ml-2 inline" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* F) FAQ Section */}
+      {/* E) FAQ Section */}
       <Section variant="light">
         <Container>
           <div className="max-w-4xl mx-auto">
