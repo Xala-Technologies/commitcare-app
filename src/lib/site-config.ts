@@ -2,11 +2,11 @@
 
 export const siteConfig = {
   companyName: "Commit Care AS",
-  orgNumber: "933440869", // Optional
+  orgNumber: "984331584", // 984 331 584
   phone: "+47 96 66 50 01",
   email: "info@commitcare.no",
   address: {
-    street: "Myraveien 26",
+    street: "Myraveien 26 A",
     postalCode: "3425",
     city: "Reistad",
   },

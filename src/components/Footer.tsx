@@ -13,6 +13,7 @@ const serviceLinks = [
 const practicalLinks = [
   { name: "Personvern", href: "/personvern" },
   { name: "Tilgjengelighet", href: "/tilgjengelighet" },
+  { name: "Institusjonsplan", href: "/docs/institusjonsplan.html" },
 ];
 
 export function Footer() {
@@ -109,7 +110,8 @@ export function Footer() {
               </div>
               {siteConfig.orgNumber && (
                 <p className="text-primary-foreground/70 text-sm md:text-base">
-                  Org.nr: {siteConfig.orgNumber}
+                  Org.nr:{" "}
+                  {siteConfig.orgNumber.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3")}
                 </p>
               )}
             </div>

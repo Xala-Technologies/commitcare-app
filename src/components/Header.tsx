@@ -1,10 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { publicSiteContent } from "@/lib/publicSiteContent";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
+  { name: "Hjem", href: "/" },
   { name: "Våre tjenester", href: "/tjenester" },
   { name: "Om oss", href: "/om-oss" },
 ];
@@ -12,6 +20,7 @@ const navLinks = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const locations = publicSiteContent.lokasjoner.items;
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -19,6 +28,17 @@ export function Header() {
     }
     return location.pathname.startsWith(href);
   };
+
+  const locationDetailMatch = location.pathname.match(/^\/lokasjoner\/([^/]+)\/?$/);
+  const activeLocationSlug = locationDetailMatch?.[1];
+  const activeLocation = activeLocationSlug
+    ? locations.find((l) => l.slug === activeLocationSlug)
+    : undefined;
+  const isLocationsSection = location.pathname.startsWith("/lokasjoner");
+  /** Tekst i trigger: vis valgt avdeling når brukeren er på detaljside. */
+  const locationsTriggerLabel = activeLocation
+    ? (activeLocation.menuLabel ?? activeLocation.name)
+    : "Lokasjoner";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/40 shadow-sm">
@@ -113,6 +133,49 @@ export function Header() {
                   )}
                 </Link>
               ))}
+
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "relative px-3 md:px-4 py-2 text-sm md:text-base font-semibold transition-all duration-200 rounded-lg",
+                    "hover:bg-accent/50 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
+                    isLocationsSection ? "text-primary" : "text-foreground"
+                  )}
+                  aria-label={
+                    activeLocation
+                      ? `Lokasjoner, valgt: ${activeLocation.menuLabel ?? activeLocation.name}`
+                      : "Åpne lokasjoner"
+                  }
+                >
+                  <span className="inline-flex items-center gap-1">
+                    {locationsTriggerLabel}
+                    <ChevronDown className="h-4 w-4 shrink-0 opacity-80" aria-hidden />
+                  </span>
+                  {isLocationsSection && (
+                    <span
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-primary"
+                      aria-hidden="true"
+                    />
+                  )}
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="min-w-[220px] max-w-[min(100vw-2rem,280px)]">
+                  {locations.map((loc) => (
+                    <DropdownMenuItem key={loc.slug} asChild>
+                      <Link
+                        to={`/lokasjoner/${loc.slug}`}
+                        className={cn(
+                          "whitespace-normal",
+                          loc.slug === activeLocationSlug && "bg-accent/40 font-semibold text-primary"
+                        )}
+                        aria-label={loc.name}
+                        aria-current={loc.slug === activeLocationSlug ? "page" : undefined}
+                      >
+                        {loc.menuLabel ?? loc.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </nav>
 
             {/* CTA Button */}
@@ -163,6 +226,29 @@ export function Header() {
                   {link.name}
                 </Link>
               ))}
+
+              <div className="px-4 pt-2">
+                <p className="px-1 pb-2 text-sm font-semibold text-foreground/70">Lokasjoner</p>
+                <div className="flex flex-col gap-1">
+                  {locations.map((loc) => (
+                    <Link
+                      key={loc.slug}
+                      to={`/lokasjoner/${loc.slug}`}
+                      onClick={() => setIsOpen(false)}
+                      aria-label={loc.name}
+                      className={cn(
+                        "px-4 py-3 min-h-[44px] text-base font-medium transition-colors rounded-lg",
+                        "hover:bg-accent/50 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
+                        location.pathname === `/lokasjoner/${loc.slug}`
+                          ? "text-primary bg-accent/30"
+                          : "text-foreground"
+                      )}
+                    >
+                      {loc.menuLabel ?? loc.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
 
               {/* Mobile CTA Button */}
               <div className="px-4 pt-2">

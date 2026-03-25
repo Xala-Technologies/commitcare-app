@@ -19,10 +19,8 @@ import {
   CheckCircle,
   Home,
 } from "lucide-react";
-import servicesHero from "@/assets/pages/tjenester/family-care.jpg";
-import caregiver1 from "@/assets/pages/tjenester/caregiver-1.jpg";
-import caregiver2 from "@/assets/pages/tjenester/caregiver-2.jpg";
-import familyCare from "@/assets/pages/tjenester/family-care.jpg";
+import servicesHero from "@/assets/pages/tjenester/tjenester-hero.png";
+import hvemTilbudetImage from "@/assets/pages/tjenester/hvem-tilbudet-passer.png";
 import samarbeidImage from "@/assets/pages/tjenester/11.jpg";
 
 const serviceIcons = [
@@ -61,7 +59,7 @@ const Tjenester = () => {
             <div className="inline-flex items-center gap-2 bg-hero/40 backdrop-blur-sm rounded-full py-2 md:py-3 px-4 md:px-6 mb-6 md:mb-8 border border-white/20">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
               <span className="text-white text-sm md:text-base font-semibold">
-                Omsorgstilbud for barn og unge mellom 13-18 år
+                Omsorgstilbud for barn og unge mellom 12–18 år
               </span>
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-4 md:mb-6 text-white tracking-tight">
@@ -133,10 +131,9 @@ const Tjenester = () => {
             <div>
               <div className="rounded-xl overflow-hidden">
                 <img
-                  src={caregiver1}
-                  alt="Hvem tilbudet passer for"
+                  src={hvemTilbudetImage}
+                  alt="Trygt rom med struktur og plass til hverdagsaktiviteter – illustrasjon til hvem tilbudet passer for"
                   className="w-full h-[400px] md:h-[500px] object-cover object-center"
-                  style={{ objectPosition: 'center 30%' }}
                 />
               </div>
             </div>

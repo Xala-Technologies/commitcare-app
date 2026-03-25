@@ -3,8 +3,10 @@ import { SEO } from "@/components/SEO";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { publicSiteContent } from "@/lib/publicSiteContent";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
@@ -14,15 +16,21 @@ import {
 import {
   Heart,
   Shield,
-  Users,
   Handshake,
   CheckCircle,
   ArrowRight,
+  MapPin,
 } from "lucide-react";
-import aboutHero from "@/assets/pages/om-oss/omoss-hero.jpg";
+import aboutHero from "@/assets/pages/om-oss/omoss-hero.png";
 import caregiver1 from "@/assets/pages/om-oss/caregiver-1.jpg";
 import caregiver2 from "@/assets/pages/om-oss/caregiver-2.jpg";
 import familyCare from "@/assets/pages/om-oss/family-care.jpg";
+
+/** Hus-/bygningsbilder for lokasjonsseksjonen (filer i `public/locations/`) */
+const avdelingBilder: Record<string, string> = {
+  lier: "/locations/avdeling-lier.jpg",
+  ronningen: "/locations/avdeling-ronningen.png",
+};
 
 const OmOss = () => {
   const content = publicSiteContent.omOss;
@@ -176,38 +184,147 @@ const OmOss = () => {
         </Container>
       </Section>
 
-      {/* D) Organisering Section */}
+      {/* D) Organisering — sentrert overskrift + kort (forbedret utgave) */}
       <Section variant="default">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-10 md:mb-12">
-              <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center justify-center gap-2 font-semibold">
-                <span>+</span> ORGANISERING
+            <header className="text-center mb-10 md:mb-14">
+              <p className="w-full text-primary-icon text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 font-semibold text-center">
+                <span aria-hidden className="mr-1.5">
+                  +
+                </span>
+                ORGANISERING
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-5 md:mb-6 leading-tight">
                 Vårt team
               </h2>
-              <p className="text-foreground/90 text-lg md:text-xl leading-relaxed mb-8">
+              <p className="text-foreground/85 text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
                 {content.organisering.tekst}
+              </p>
+            </header>
+
+            <ul
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 list-none p-0 m-0"
+              aria-label="Roller i organiseringen"
+            >
+              {content.organisering.roller.map((rolle) => (
+                <li key={rolle}>
+                  <div className="group flex items-start gap-4 h-full min-h-[4.5rem] p-5 md:p-6 bg-card-token rounded-2xl border border-border/50 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
+                      <CheckCircle className="h-5 w-5" aria-hidden />
+                    </div>
+                    <p className="text-foreground font-semibold text-base md:text-lg leading-snug pt-1.5">
+                      {rolle}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Container>
+      </Section>
+
+      {/* E) Vår avdeling Section — bilde + tekst, vekslende layout */}
+      <Section variant="default">
+        <Container>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+              <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center justify-center gap-2 font-semibold">
+                <span>+</span> VÅR AVDELING
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-4 md:mb-5">
+                Våre lokasjoner
+              </h2>
+              <p className="text-foreground/80 text-base md:text-lg leading-relaxed">
+                Vi har drift i Lier og tilbyr Inn på tunet på Rønningen gård. Her får du en kort oversikt – ta gjerne kontakt for mer detaljer.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-              {content.organisering.roller.map((rolle, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 p-5 md:p-6 bg-card-token rounded-xl border border-border/50 hover:shadow-lg transition-all duration-300"
-                >
-                  <CheckCircle className="w-5 h-5 text-primary-icon flex-shrink-0" />
-                  <p className="text-foreground font-medium text-base md:text-lg">{rolle}</p>
-                </div>
-              ))}
+            <div className="space-y-14 md:space-y-20 lg:space-y-24">
+              {content.kortOmAvdelingen.map((item, index) => {
+                const slug = "slug" in item ? item.slug : `avdeling-${index}`;
+                const imageSrc = avdelingBilder[slug] ?? "/locations/avdeling-lier.jpg";
+                const imageFirst = index % 2 === 0;
+                const eyebrow = "eyebrow" in item ? item.eyebrow : null;
+                const body = "body" in item ? item.body : item.description;
+                const address = "address" in item && item.address ? item.address : null;
+                const city = "city" in item && item.city ? item.city : null;
+
+                return (
+                  <div
+                    key={slug}
+                    className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center"
+                  >
+                    <div
+                      className={cn(
+                        "order-2 lg:order-none",
+                        imageFirst ? "lg:order-1" : "lg:order-2"
+                      )}
+                    >
+                      <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-lg aspect-[4/3] lg:aspect-[5/4] bg-muted">
+                        <img
+                          src={imageSrc}
+                          alt={item.title}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          style={{ objectPosition: "center 45%" }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent pointer-events-none" />
+                        {city && (
+                          <p className="absolute bottom-4 left-4 right-4 text-primary-foreground font-serif text-lg md:text-xl font-semibold drop-shadow-sm">
+                            {city}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      className={cn(
+                        "order-1 lg:order-none space-y-4 md:space-y-5",
+                        imageFirst ? "lg:order-2" : "lg:order-1"
+                      )}
+                    >
+                      {eyebrow && (
+                        <Badge variant="secondary" className="text-xs font-semibold tracking-wide uppercase">
+                          {eyebrow}
+                        </Badge>
+                      )}
+                      <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-foreground/90 text-base md:text-lg leading-relaxed font-medium">
+                        {item.description}
+                      </p>
+                      <p className="text-foreground/75 text-base md:text-lg leading-relaxed">
+                        {body}
+                      </p>
+                      {address && (
+                        <p className="flex items-start gap-2 text-foreground/80 text-sm md:text-base">
+                          <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
+                          <span>{address}</span>
+                        </p>
+                      )}
+                      <div className="pt-2">
+                        <Button
+                          asChild
+                          variant="default"
+                          className="rounded-full min-h-[44px] px-6"
+                        >
+                          <Link to="/kontakt">
+                            Ta kontakt om denne avdelingen
+                            <ArrowRight className="w-4 h-4 ml-2 inline" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* E) FAQ Section */}
+      {/* F) FAQ Section */}
       <Section variant="light">
         <Container>
           <div className="max-w-4xl mx-auto">
@@ -229,7 +346,7 @@ const OmOss = () => {
                   Hva slags tjenester tilbyr dere?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/90 text-base md:text-lg leading-relaxed pb-4 pt-2">
-                  Vi tilbyr et omsorgstilbud for barn og unge i alderen 13–18 år. Våre tjenester inkluderer døgnkontinuerlig tilstedeværelse, individuell oppfølging, skole og struktur, aktivitet og mestring, samt samarbeid med nettverk.
+                  Vi tilbyr et omsorgstilbud for barn og unge i alderen 12–18 år. Våre tjenester inkluderer døgnkontinuerlig tilstedeværelse, individuell oppfølging, skole og struktur, aktivitet og mestring, samt samarbeid med nettverk.
                 </AccordionContent>
               </AccordionItem>
 
@@ -265,7 +382,7 @@ const OmOss = () => {
                   Hva er målgruppen for tilbudet?
                 </AccordionTrigger>
                 <AccordionContent className="text-foreground/90 text-base md:text-lg leading-relaxed pb-4 pt-2">
-                  Vårt tilbud er rettet mot barn og unge i alderen 13–18 år som trenger omsorg og støtte. Vi jobber med fokus på kontinuitet og tett oppfølging.
+                  Vårt tilbud er rettet mot barn og unge i alderen 12–18 år som trenger omsorg og støtte. Vi jobber med fokus på kontinuitet og tett oppfølging.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -273,7 +390,7 @@ const OmOss = () => {
         </Container>
       </Section>
 
-      {/* F) CTA Section */}
+      {/* G) CTA Section */}
       <Section variant="default">
         <Container>
           <div className="bg-hero rounded-xl md:rounded-2xl p-8 md:p-10 lg:p-12 relative overflow-hidden">

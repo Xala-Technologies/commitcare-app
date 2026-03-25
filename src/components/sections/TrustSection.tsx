@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import familyCare from "@/assets/pages/family-care.jpg";
+import trustEveryday from "@/assets/pages/trust-everyday-hands.png";
 
 export function TrustSection() {
   return (
@@ -11,10 +11,10 @@ export function TrustSection() {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Image */}
           <div className="relative group">
-            <img 
-              src={familyCare} 
-              alt="Familie som får støtte og omsorg" 
-              className="rounded-2xl w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover transition-shadow duration-300"
+            <img
+              src={trustEveryday}
+              alt="Hender som samarbeider om planlegging i en rolig hverdag – uten synlige ansikter"
+              className="rounded-2xl w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover object-center transition-shadow duration-300"
             />
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 to-transparent"></div>
           </div>

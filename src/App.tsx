@@ -13,6 +13,8 @@ import Tjenester from "./pages/Tjenester";
 import OmOss from "./pages/OmOss";
 import TrygghetOgKvalitet from "./pages/TrygghetOgKvalitet";
 import Kontakt from "./pages/Kontakt";
+import Lokasjoner from "./pages/Lokasjoner";
+import LokasjonDetalj from "./pages/LokasjonDetalj";
 import Jobb from "./pages/Jobb";
 import Innsikt from "./pages/Innsikt";
 import Personvern from "./pages/Personvern";
@@ -40,6 +42,8 @@ const App = () => (
             <Route path="/om-oss" element={<OmOss />} />
             <Route path="/trygghet-og-kvalitet" element={<TrygghetOgKvalitet />} />
             <Route path="/kontakt" element={<Kontakt />} />
+            <Route path="/lokasjoner" element={<Lokasjoner />} />
+            <Route path="/lokasjoner/:slug" element={<LokasjonDetalj />} />
             <Route path="/jobb" element={<Jobb />} />
             <Route path="/innsikt" element={<Innsikt />} />
             <Route path="/personvern" element={<Personvern />} />
