@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container } from "@/components/ui/container";
-import { siteConfig } from "@/lib/site-config";
+import { formatOrgNumber, siteConfig } from "@/lib/site-config";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/Logo";
@@ -111,7 +111,7 @@ export function Footer() {
               {siteConfig.orgNumber && (
                 <p className="text-primary-foreground/70 text-sm md:text-base">
                   Org.nr:{" "}
-                  {siteConfig.orgNumber.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3")}
+                  {formatOrgNumber(siteConfig.orgNumber)}
                 </p>
               )}
             </div>

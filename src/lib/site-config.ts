@@ -2,7 +2,7 @@
 
 export const siteConfig = {
   companyName: "Commit Care AS",
-  orgNumber: "984331584", // 984 331 584
+  orgNumber: "933440869",
   phone: "+47 96 66 50 01",
   email: "info@commitcare.no",
   address: {
@@ -17,4 +17,11 @@ export const siteConfig = {
     sunday: "Lukket",
   },
 } as const;
+
+/** Formats a 9-digit Norwegian org number as "XXX XXX XXX". */
+export function formatOrgNumber(orgNumber: string): string {
+  return orgNumber.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3");
+}
+
+export const formattedOrgNumber = formatOrgNumber(siteConfig.orgNumber);
 

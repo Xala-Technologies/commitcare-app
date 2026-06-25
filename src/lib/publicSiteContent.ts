@@ -3,6 +3,8 @@
  * Innhold for offentlig nettsted basert på institusjonsplanen
  */
 
+import { formattedOrgNumber } from "./site-config";
+
 export interface PublicLocationFactRow {
   label: string;
   value: string;
@@ -266,7 +268,7 @@ export const publicSiteContent = {
       postadresse: "Myraveien 26 A, 3425 Reistad",
       besoksadresse: "Myraveien 26 A, 3425 Reistad",
       epost: "info@commitcare.no",
-      foretaksnummer: "984 331 584",
+      foretaksnummer: formattedOrgNumber,
     },
   },
   jobb: {
@@ -336,7 +338,7 @@ export const publicSiteContent = {
       epost: "info@commitcare.no",
       postadresse: "Myraveien 26 A, 3425 Reistad",
       besoksadresse: "Myraveien 26 A, 3425 Reistad",
-      foretaksnummer: "984 331 584",
+      foretaksnummer: formattedOrgNumber,
     },
   },
   lokasjoner: {
@@ -439,7 +441,7 @@ export const publicSiteContent = {
           { label: "Kapasitet", value: "2 plasser" },
           { label: "Tilbud / hjemler", value: "Omsorg § 5-1 og frivillige tiltak §§ 3-2 og 3-4 (ikke kap. 6)" },
           { label: "Adresse (bosted)", value: "Myraveien 26 A, 3425 Reistad" },
-          { label: "Organisasjonsnummer", value: "984 331 584" },
+          { label: "Organisasjonsnummer", value: formattedOrgNumber },
           { label: "Metodikk", value: "Miljøterapeutisk tilnærming, struktur og tett voksenoppfølging" },
           { label: "Samarbeid", value: "Familie, skole, barnevern og øvrig hjelpeapparat" },
         ],
