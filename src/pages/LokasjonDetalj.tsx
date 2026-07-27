@@ -398,23 +398,12 @@ const LokasjonDetalj = () => {
                 )}
               </div>
 
-              <div className="order-1 lg:order-2 relative min-h-[220px] sm:min-h-[280px] lg:min-h-[340px]">
-                <div
-                  className="absolute -right-4 top-8 h-48 w-40 rounded-2xl bg-primary/20 rotate-6 hidden sm:block"
-                  aria-hidden
+              <div className="order-1 lg:order-2 relative">
+                <img
+                  src={heroImage}
+                  alt=""
+                  className="relative z-10 w-full h-auto"
                 />
-                <div
-                  className="absolute right-10 -bottom-2 h-52 w-40 rounded-2xl bg-primary/12 -rotate-3 hidden sm:block"
-                  aria-hidden
-                />
-                <div className="relative z-10 h-full rounded-2xl overflow-hidden border border-border/50 shadow-xl ring-1 ring-black/5 aspect-[4/3] lg:aspect-auto lg:h-[min(400px,52vh)]">
-                  <img
-                    src={heroImage}
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover object-[center_45%]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" aria-hidden />
-                </div>
               </div>
             </div>
           </Container>
