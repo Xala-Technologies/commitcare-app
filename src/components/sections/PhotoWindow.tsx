@@ -6,27 +6,34 @@ interface PhotoWindowProps {
   /** Accessible label for the visual band */
   label: string;
   className?: string;
+  /** Object-position for framing the subject */
+  objectPosition?: string;
 }
 
 /**
- * Sticky photo band: full image stays pinned while you scroll,
- * then the next opaque section slides over it (Rødbysætra-style).
+ * Rødbysætra-style pinned photo band: image stays still under the header
+ * while the next opaque same-color section slides up and covers it.
  */
-export function PhotoWindow({ src, label, className }: PhotoWindowProps) {
+export function PhotoWindow({
+  src,
+  label,
+  className,
+  objectPosition = "center",
+}: PhotoWindowProps) {
   return (
     <section
       aria-label={label}
       className={cn(
-        // Extra height = scroll runway so the image can stick while the next section covers it
-        "relative z-0 h-[165vh] md:h-[155vh]",
+        "relative z-0 h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]",
         className
       )}
     >
-      <div className="sticky top-16 md:top-20 z-0 w-full bg-background">
+      <div className="sticky top-16 md:top-20 z-0 relative h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] w-full overflow-hidden">
         <img
           src={src}
           alt=""
-          className="block w-full h-auto"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition }}
           loading="lazy"
           decoding="async"
         />
