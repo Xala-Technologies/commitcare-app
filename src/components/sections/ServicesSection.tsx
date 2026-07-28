@@ -71,7 +71,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <Section variant="dark" className="bg-section-dark">
+    <Section variant="dark">
       <Container>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">

@@ -21,7 +21,7 @@ export function PurposeSection() {
   return (
     <section className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${purposeBg})` }}
       >
@@ -40,8 +40,8 @@ export function PurposeSection() {
 
           {/* Values List */}
           <div className="space-y-4 md:space-y-5">
-            {values.map((value, index) => (
-              <div 
+            {values.map((value) => (
+              <div
                 key={value.title}
                 className="border-t border-primary-foreground/20 pt-4 md:pt-5"
               >

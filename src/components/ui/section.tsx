@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 interface SectionProps {
   children: ReactNode;
   className?: string;
-  variant?: "default" | "light" | "dark";
+  variant?: "default" | "light" | "dark" | "transparent";
 }
 
 export function Section({ children, className, variant = "default" }: SectionProps) {
@@ -12,6 +12,7 @@ export function Section({ children, className, variant = "default" }: SectionPro
     default: "bg-background",
     light: "bg-section-light",
     dark: "bg-section-dark",
+    transparent: "bg-transparent",
   };
 
   return (
