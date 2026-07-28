@@ -31,7 +31,7 @@ const steps = [
 
 export function HowWeWork() {
   return (
-    <Section variant="light">
+    <Section variant="light" className="relative z-10">
       <Container>
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
           <p className="text-primary-icon text-sm md:text-base tracking-wider uppercase mb-4 md:mb-5 flex items-center justify-center gap-2 font-semibold">

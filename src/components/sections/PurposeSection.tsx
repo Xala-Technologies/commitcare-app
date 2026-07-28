@@ -19,7 +19,7 @@ const values = [
 
 export function PurposeSection() {
   return (
-    <section className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
+    <section className="relative z-10 min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
