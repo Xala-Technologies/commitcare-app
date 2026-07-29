@@ -18,17 +18,16 @@ const Index = () => {
       <HeroSection />
       <ServiceCards />
       <QualityHighlight />
-      <PhotoWindow
-        src={farmAerial}
-        label="Rønningen gård sett fra luften"
-      />
-      <HowWeWork />
-      <TrustSection />
-      <PhotoWindow
-        src={farmDeck}
-        label="Rønningen gård med uteområde og basseng"
-      />
-      <PurposeSection />
+
+      <PhotoWindow src={farmAerial} label="Rønningen gård sett fra luften">
+        <HowWeWork />
+        <TrustSection />
+      </PhotoWindow>
+
+      <PhotoWindow src={farmDeck} label="Rønningen gård med uteområde og basseng">
+        <PurposeSection />
+      </PhotoWindow>
+
       <PartnersSection />
       <ServicesSection />
       <ReliableCareSection />
